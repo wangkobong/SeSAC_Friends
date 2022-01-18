@@ -22,6 +22,8 @@
 		FE67599B279552C500B1C699 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE67599E279552C500B1C699 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE6759A0279552C500B1C699 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE6759C72796955100B1C699 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		FE6759C82796955100B1C699 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		FE675991279552C300B1C699 /* SeSAC_Friends */ = {
 			isa = PBXGroup;
 			children = (
+				FE6759C6279694CB00B1C699 /* font */,
 				FE675992279552C300B1C699 /* AppDelegate.swift */,
 				FE675994279552C300B1C699 /* SceneDelegate.swift */,
 				FE675996279552C300B1C699 /* ViewController.swift */,
@@ -62,6 +65,15 @@
 				FE6759A0279552C500B1C699 /* Info.plist */,
 			);
 			path = SeSAC_Friends;
+			sourceTree = "<group>";
+		};
+		FE6759C6279694CB00B1C699 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				FE6759C82796955100B1C699 /* NotoSansKR-Medium.otf */,
+				FE6759C72796955100B1C699 /* NotoSansKR-Regular.otf */,
+			);
+			path = font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,7 +289,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YWSA3TX7T7;
+				DEVELOPMENT_TEAM = 2EZ5QWFYX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSAC_Friends/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -304,7 +316,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YWSA3TX7T7;
+				DEVELOPMENT_TEAM = 2EZ5QWFYX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSAC_Friends/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
