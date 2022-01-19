@@ -7,23 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9FA4AF40C7C88234B27CDE7 /* Pods_SeSAC_Friends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9DAFE1E8B256EA39D6DA9D3 /* Pods_SeSAC_Friends.framework */; };
+		FE520456279721200039E63A /* InsertCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE520455279721200039E63A /* InsertCodeViewController.swift */; };
+		FE520459279721610039E63A /* InsertEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE520458279721610039E63A /* InsertEmailViewController.swift */; };
+		FE52045B279721860039E63A /* SelectGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52045A279721860039E63A /* SelectGenderViewController.swift */; };
+		FE5204612797E8410039E63A /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5204602797E8410039E63A /* Observable.swift */; };
+		FE5204642797E8E20039E63A /* AuthPhoneNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5204632797E8E20039E63A /* AuthPhoneNumberViewModel.swift */; };
+		FE5204672797EB620039E63A /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = FE5204662797EB620039E63A /* Toast */; };
+		FE52046A2797EB760039E63A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FE5204692797EB760039E63A /* SnapKit */; };
+		FE52046D2797EB9C0039E63A /* AuthPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52046C2797EB9C0039E63A /* AuthPhoneView.swift */; };
+		FE52046F2797F3610039E63A /* UIFont++Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52046E2797F3610039E63A /* UIFont++Extension.swift */; };
+		FE5204712797FD240039E63A /* UILabel++Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5204702797FD240039E63A /* UILabel++Extension.swift */; };
+		FE520475279800E50039E63A /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE520473279800E50039E63A /* NotoSansKR-Regular.otf */; };
+		FE520476279800E50039E63A /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE520474279800E50039E63A /* NotoSansKR-Medium.otf */; };
 		FE675993279552C300B1C699 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675992279552C300B1C699 /* AppDelegate.swift */; };
 		FE675995279552C300B1C699 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675994279552C300B1C699 /* SceneDelegate.swift */; };
-		FE675997279552C300B1C699 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675996279552C300B1C699 /* ViewController.swift */; };
+		FE675997279552C300B1C699 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675996279552C300B1C699 /* MainViewController.swift */; };
 		FE67599C279552C500B1C699 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE67599B279552C500B1C699 /* Assets.xcassets */; };
 		FE67599F279552C500B1C699 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE67599D279552C500B1C699 /* LaunchScreen.storyboard */; };
+		FE83FD3127969B3500184A14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE83FD3027969B3500184A14 /* GoogleService-Info.plist */; };
+		FEF232F5279698760082EBCC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FEF232F4279698760082EBCC /* .swiftlint.yml */; };
+		FEF232FC27969A3C0082EBCC /* AuthPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		053E8859A5D0AB3278236F8A /* Pods-SeSAC_Friends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSAC_Friends.release.xcconfig"; path = "Target Support Files/Pods-SeSAC_Friends/Pods-SeSAC_Friends.release.xcconfig"; sourceTree = "<group>"; };
+		B9DAFE1E8B256EA39D6DA9D3 /* Pods_SeSAC_Friends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeSAC_Friends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6DB90AD6C85878ECF3B211B /* Pods-SeSAC_Friends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSAC_Friends.debug.xcconfig"; path = "Target Support Files/Pods-SeSAC_Friends/Pods-SeSAC_Friends.debug.xcconfig"; sourceTree = "<group>"; };
+		FE520455279721200039E63A /* InsertCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertCodeViewController.swift; sourceTree = "<group>"; };
+		FE520458279721610039E63A /* InsertEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertEmailViewController.swift; sourceTree = "<group>"; };
+		FE52045A279721860039E63A /* SelectGenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGenderViewController.swift; sourceTree = "<group>"; };
+		FE5204602797E8410039E63A /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		FE5204632797E8E20039E63A /* AuthPhoneNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPhoneNumberViewModel.swift; sourceTree = "<group>"; };
+		FE52046C2797EB9C0039E63A /* AuthPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPhoneView.swift; sourceTree = "<group>"; };
+		FE52046E2797F3610039E63A /* UIFont++Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont++Extension.swift"; sourceTree = "<group>"; };
+		FE5204702797FD240039E63A /* UILabel++Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel++Extension.swift"; sourceTree = "<group>"; };
+		FE520473279800E50039E63A /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		FE520474279800E50039E63A /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		FE67598F279552C300B1C699 /* SeSAC_Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC_Friends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE675992279552C300B1C699 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE675994279552C300B1C699 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FE675996279552C300B1C699 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FE675996279552C300B1C699 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FE67599B279552C500B1C699 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE67599E279552C500B1C699 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE6759A0279552C500B1C699 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FE6759C72796955100B1C699 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
-		FE6759C82796955100B1C699 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		FE83FD3027969B3500184A14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FEF232F4279698760082EBCC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPhoneNumberViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +61,83 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE52046A2797EB760039E63A /* SnapKit in Frameworks */,
+				FE5204672797EB620039E63A /* Toast in Frameworks */,
+				F9FA4AF40C7C88234B27CDE7 /* Pods_SeSAC_Friends.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74BDF0FB70CB8E1BF217FF3B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D6DB90AD6C85878ECF3B211B /* Pods-SeSAC_Friends.debug.xcconfig */,
+				053E8859A5D0AB3278236F8A /* Pods-SeSAC_Friends.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		77034697E4178439037AD67F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9DAFE1E8B256EA39D6DA9D3 /* Pods_SeSAC_Friends.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE520457279721410039E63A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */,
+				FE520455279721200039E63A /* InsertCodeViewController.swift */,
+				FE520458279721610039E63A /* InsertEmailViewController.swift */,
+				FE52045A279721860039E63A /* SelectGenderViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		FE52045C2797219F0039E63A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FE52046E2797F3610039E63A /* UIFont++Extension.swift */,
+				FE5204702797FD240039E63A /* UILabel++Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FE52045D279722120039E63A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FE52046B2797EB880039E63A /* Auth */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FE5204622797E8D00039E63A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				FE5204632797E8E20039E63A /* AuthPhoneNumberViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		FE52046B2797EB880039E63A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				FE52046C2797EB9C0039E63A /* AuthPhoneView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		FE675986279552C300B1C699 = {
 			isa = PBXGroup;
 			children = (
 				FE675991279552C300B1C699 /* SeSAC_Friends */,
 				FE675990279552C300B1C699 /* Products */,
+				74BDF0FB70CB8E1BF217FF3B /* Pods */,
+				77034697E4178439037AD67F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +152,21 @@
 		FE675991279552C300B1C699 /* SeSAC_Friends */ = {
 			isa = PBXGroup;
 			children = (
+				FE52045C2797219F0039E63A /* Extensions */,
+				FEF232FA2796996E0082EBCC /* Managers */,
+				FEF232F9279699620082EBCC /* Other */,
+				FEF232F8279699530082EBCC /* Models */,
+				FEF232F72796994C0082EBCC /* Controllers */,
+				FEF232F6279699370082EBCC /* ViewModels */,
+				FE52045D279722120039E63A /* Views */,
 				FE6759C6279694CB00B1C699 /* font */,
 				FE675992279552C300B1C699 /* AppDelegate.swift */,
 				FE675994279552C300B1C699 /* SceneDelegate.swift */,
-				FE675996279552C300B1C699 /* ViewController.swift */,
 				FE67599B279552C500B1C699 /* Assets.xcassets */,
 				FE67599D279552C500B1C699 /* LaunchScreen.storyboard */,
 				FE6759A0279552C500B1C699 /* Info.plist */,
+				FE83FD3027969B3500184A14 /* GoogleService-Info.plist */,
+				FEF232F4279698760082EBCC /* .swiftlint.yml */,
 			);
 			path = SeSAC_Friends;
 			sourceTree = "<group>";
@@ -70,10 +174,49 @@
 		FE6759C6279694CB00B1C699 /* font */ = {
 			isa = PBXGroup;
 			children = (
-				FE6759C82796955100B1C699 /* NotoSansKR-Medium.otf */,
-				FE6759C72796955100B1C699 /* NotoSansKR-Regular.otf */,
+				FE520474279800E50039E63A /* NotoSansKR-Medium.otf */,
+				FE520473279800E50039E63A /* NotoSansKR-Regular.otf */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		FEF232F6279699370082EBCC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FE5204622797E8D00039E63A /* Auth */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FEF232F72796994C0082EBCC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FE520457279721410039E63A /* Auth */,
+				FE675996279552C300B1C699 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FEF232F8279699530082EBCC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FEF232F9279699620082EBCC /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				FE5204602797E8410039E63A /* Observable.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		FEF232FA2796996E0082EBCC /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,15 +226,22 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE6759A3279552C500B1C699 /* Build configuration list for PBXNativeTarget "SeSAC_Friends" */;
 			buildPhases = (
+				CBE981DE110DDEE687E50A6B /* [CP] Check Pods Manifest.lock */,
 				FE67598B279552C300B1C699 /* Sources */,
 				FE67598C279552C300B1C699 /* Frameworks */,
 				FE67598D279552C300B1C699 /* Resources */,
+				FE6759C92796978500B1C699 /* ShellScript */,
+				070AAE4844BD0C3848D1C5E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SeSAC_Friends;
+			packageProductDependencies = (
+				FE5204662797EB620039E63A /* Toast */,
+				FE5204692797EB760039E63A /* SnapKit */,
+			);
 			productName = SeSAC_Friends;
 			productReference = FE67598F279552C300B1C699 /* SeSAC_Friends.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +270,10 @@
 				Base,
 			);
 			mainGroup = FE675986279552C300B1C699;
+			packageReferences = (
+				FE5204652797EB620039E63A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				FE5204682797EB760039E63A /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = FE675990279552C300B1C699 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -134,19 +288,91 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE520476279800E50039E63A /* NotoSansKR-Medium.otf in Resources */,
+				FEF232F5279698760082EBCC /* .swiftlint.yml in Resources */,
+				FE83FD3127969B3500184A14 /* GoogleService-Info.plist in Resources */,
 				FE67599F279552C500B1C699 /* LaunchScreen.storyboard in Resources */,
 				FE67599C279552C500B1C699 /* Assets.xcassets in Resources */,
+				FE520475279800E50039E63A /* NotoSansKR-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		070AAE4844BD0C3848D1C5E2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SeSAC_Friends/Pods-SeSAC_Friends-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SeSAC_Friends/Pods-SeSAC_Friends-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SeSAC_Friends/Pods-SeSAC_Friends-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBE981DE110DDEE687E50A6B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SeSAC_Friends-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE6759C92796978500B1C699 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FE67598B279552C300B1C699 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE675997279552C300B1C699 /* ViewController.swift in Sources */,
+				FE5204712797FD240039E63A /* UILabel++Extension.swift in Sources */,
+				FEF232FC27969A3C0082EBCC /* AuthPhoneNumberViewController.swift in Sources */,
+				FE52046D2797EB9C0039E63A /* AuthPhoneView.swift in Sources */,
+				FE520456279721200039E63A /* InsertCodeViewController.swift in Sources */,
+				FE52046F2797F3610039E63A /* UIFont++Extension.swift in Sources */,
+				FE5204642797E8E20039E63A /* AuthPhoneNumberViewModel.swift in Sources */,
+				FE520459279721610039E63A /* InsertEmailViewController.swift in Sources */,
+				FE52045B279721860039E63A /* SelectGenderViewController.swift in Sources */,
+				FE5204612797E8410039E63A /* Observable.swift in Sources */,
+				FE675997279552C300B1C699 /* MainViewController.swift in Sources */,
 				FE675993279552C300B1C699 /* AppDelegate.swift in Sources */,
 				FE675995279552C300B1C699 /* SceneDelegate.swift in Sources */,
 			);
@@ -284,6 +510,7 @@
 		};
 		FE6759A4279552C500B1C699 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6DB90AD6C85878ECF3B211B /* Pods-SeSAC_Friends.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,7 +528,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kobong.SeSAC-Friends";
+				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesac1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -311,6 +538,7 @@
 		};
 		FE6759A5279552C500B1C699 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 053E8859A5D0AB3278236F8A /* Pods-SeSAC_Friends.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -328,7 +556,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kobong.SeSAC-Friends";
+				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesac1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -358,6 +586,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FE5204652797EB620039E63A /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		FE5204682797EB760039E63A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FE5204662797EB620039E63A /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE5204652797EB620039E63A /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		FE5204692797EB760039E63A /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE5204682797EB760039E63A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FE675987279552C300B1C699 /* Project object */;
 }
