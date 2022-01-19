@@ -9,10 +9,27 @@ import UIKit
 
 class InsertCodeViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private let insertCodeView = InsertCodeView()
+//    private let AuthPhoneNumberViewModel = AuthPhoneNumberViewModel()
 
-        // Do any additional setup after loading the view.
+    deinit {
+        print("\(self) deinit")
     }
 
+    override func loadView() {
+        self.view = insertCodeView
+
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+
+//        AuthPhoneNumberView.getSMSButton.addTarget(self, action: #selector(didTapRequestSMS), for: .touchUpInside)
+
+    }
+
+//    @objc private func didTapRequestSMS() {
+//        let vc = InsertCodeViewController()
+//        navigationController?.pushViewController(vc, animated: true)}
 }

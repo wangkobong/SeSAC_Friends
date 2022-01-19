@@ -25,6 +25,11 @@ class AuthPhoneNumberViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
 
+        AuthPhoneNumberView.getSMSButton.addTarget(self, action: #selector(didTapRequestSMS), for: .touchUpInside)
+
     }
-    // ㅌ
+
+    @objc private func didTapRequestSMS() {
+        let vc = InsertCodeViewController()
+        navigationController?.pushViewController(vc, animated: true)}
 }

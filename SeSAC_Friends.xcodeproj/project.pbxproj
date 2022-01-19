@@ -20,6 +20,8 @@
 		FE5204712797FD240039E63A /* UILabel++Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5204702797FD240039E63A /* UILabel++Extension.swift */; };
 		FE520475279800E50039E63A /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE520473279800E50039E63A /* NotoSansKR-Regular.otf */; };
 		FE520476279800E50039E63A /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE520474279800E50039E63A /* NotoSansKR-Medium.otf */; };
+		FE52047827984FD20039E63A /* InsertCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52047727984FD20039E63A /* InsertCodeView.swift */; };
+		FE52047A279853C90039E63A /* UIColor++Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE520479279853C90039E63A /* UIColor++Extension.swift */; };
 		FE675993279552C300B1C699 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675992279552C300B1C699 /* AppDelegate.swift */; };
 		FE675995279552C300B1C699 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675994279552C300B1C699 /* SceneDelegate.swift */; };
 		FE675997279552C300B1C699 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675996279552C300B1C699 /* MainViewController.swift */; };
@@ -44,6 +46,8 @@
 		FE5204702797FD240039E63A /* UILabel++Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel++Extension.swift"; sourceTree = "<group>"; };
 		FE520473279800E50039E63A /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		FE520474279800E50039E63A /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		FE52047727984FD20039E63A /* InsertCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertCodeView.swift; sourceTree = "<group>"; };
+		FE520479279853C90039E63A /* UIColor++Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor++Extension.swift"; sourceTree = "<group>"; };
 		FE67598F279552C300B1C699 /* SeSAC_Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC_Friends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE675992279552C300B1C699 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE675994279552C300B1C699 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 			children = (
 				FE52046E2797F3610039E63A /* UIFont++Extension.swift */,
 				FE5204702797FD240039E63A /* UILabel++Extension.swift */,
+				FE520479279853C90039E63A /* UIColor++Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				FE52046C2797EB9C0039E63A /* AuthPhoneView.swift */,
+				FE52047727984FD20039E63A /* InsertCodeView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -372,9 +378,11 @@
 				FE520459279721610039E63A /* InsertEmailViewController.swift in Sources */,
 				FE52045B279721860039E63A /* SelectGenderViewController.swift in Sources */,
 				FE5204612797E8410039E63A /* Observable.swift in Sources */,
+				FE52047827984FD20039E63A /* InsertCodeView.swift in Sources */,
 				FE675997279552C300B1C699 /* MainViewController.swift in Sources */,
 				FE675993279552C300B1C699 /* AppDelegate.swift in Sources */,
 				FE675995279552C300B1C699 /* SceneDelegate.swift in Sources */,
+				FE52047A279853C90039E63A /* UIColor++Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

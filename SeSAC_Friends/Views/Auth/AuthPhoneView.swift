@@ -20,16 +20,15 @@ class AuthPhoneView: UIView {
          return button
      }()
 
-    let dividingLine: UIView = {
+    private let dividingLine: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "BrandGray3")
+        view.backgroundColor = UIColor.brandColor(.gray3)
         return view
     }()
 
     let phoneNumberTextField: UITextField = {
        let field = UITextField()
         field.placeholder = "휴대폰 번호(-없이 숫자만 입력)"
-//        field.font = UIFont(name: "NotoSansKR-Regular", size: 14)
         field.font = UIFont.NotoSans(.regular, size: 14)
         field.keyboardType = .numberPad
 
@@ -38,11 +37,9 @@ class AuthPhoneView: UIView {
 
     let descriptionLabel: UILabel = {
         let label = UILabel()
-//        label.font = UIFont(name: "NotoSansKR-Regular", size: 20)
         label.font = UIFont.NotoSans(.regular, size: 20)
         label.text = "새싹 서비스 이용을 위해 \n휴대폰 번호를 입력해 주세요"
         label.numberOfLines = 0
-
         label.addInterlineSpacing(spacingValue: 3)
         label.textAlignment = .center
         return label
