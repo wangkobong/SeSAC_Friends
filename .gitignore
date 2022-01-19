@@ -33,7 +33,7 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
-.GoogleService-Info.plist
+!Info.plist
 
 ## Obj-C/Swift specific
 *.hmap
