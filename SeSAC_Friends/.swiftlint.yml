@@ -1,8 +1,0 @@
-disabled_rules:
-- line_length
-
-included:
-excluded: # SwiftLint 검사에서 제외할 파일 경로
-- Pods
-- ProjectName/AppDelegate.swift
-- ProjectName/SceneDelegate.swift
