@@ -25,8 +25,21 @@ class InsertCodeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
 
-//        AuthPhoneNumberView.getSMSButton.addTarget(self, action: #selector(didTapRequestSMS), for: .touchUpInside)
+        insertCodeView.authButton.addTarget(self, action: #selector(didTapSend), for: .touchUpInside)
 
+    }
+    @objc private func didTapSend() {
+        if let text = insertCodeView.SMSCodeTextField.text, !text.isEmpty {
+            let code = text
+            AuthManager.shared.verifyCode(smsCode: code) { [weak self] success in
+                guard success else { return }
+                DispatchQueue.main.async {
+                    let vc = InsertEmailViewController()
+                    vc.title = "이메일"
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        }
     }
 
 //    @objc private func didTapRequestSMS() {

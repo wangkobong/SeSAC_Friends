@@ -22,6 +22,10 @@
 		FE520476279800E50039E63A /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = FE520474279800E50039E63A /* NotoSansKR-Medium.otf */; };
 		FE52047827984FD20039E63A /* InsertCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52047727984FD20039E63A /* InsertCodeView.swift */; };
 		FE52047A279853C90039E63A /* UIColor++Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE520479279853C90039E63A /* UIColor++Extension.swift */; };
+		FE52047C27985EAE0039E63A /* InsertEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52047B27985EAE0039E63A /* InsertEmailView.swift */; };
+		FE52047E27985EFA0039E63A /* InsertNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52047D27985EFA0039E63A /* InsertNicknameViewController.swift */; };
+		FE52048027985FB70039E63A /* InsertNicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52047F27985FB70039E63A /* InsertNicknameView.swift */; };
+		FE52048227986BD90039E63A /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52048127986BD90039E63A /* AuthManager.swift */; };
 		FE675993279552C300B1C699 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675992279552C300B1C699 /* AppDelegate.swift */; };
 		FE675995279552C300B1C699 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675994279552C300B1C699 /* SceneDelegate.swift */; };
 		FE675997279552C300B1C699 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675996279552C300B1C699 /* MainViewController.swift */; };
@@ -48,6 +52,10 @@
 		FE520474279800E50039E63A /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		FE52047727984FD20039E63A /* InsertCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertCodeView.swift; sourceTree = "<group>"; };
 		FE520479279853C90039E63A /* UIColor++Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor++Extension.swift"; sourceTree = "<group>"; };
+		FE52047B27985EAE0039E63A /* InsertEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertEmailView.swift; sourceTree = "<group>"; };
+		FE52047D27985EFA0039E63A /* InsertNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertNicknameViewController.swift; sourceTree = "<group>"; };
+		FE52047F27985FB70039E63A /* InsertNicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertNicknameView.swift; sourceTree = "<group>"; };
+		FE52048127986BD90039E63A /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FE67598F279552C300B1C699 /* SeSAC_Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC_Friends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE675992279552C300B1C699 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE675994279552C300B1C699 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +105,7 @@
 				FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */,
 				FE520455279721200039E63A /* InsertCodeViewController.swift */,
 				FE520458279721610039E63A /* InsertEmailViewController.swift */,
+				FE52047D27985EFA0039E63A /* InsertNicknameViewController.swift */,
 				FE52045A279721860039E63A /* SelectGenderViewController.swift */,
 			);
 			path = Auth;
@@ -133,6 +142,8 @@
 			children = (
 				FE52046C2797EB9C0039E63A /* AuthPhoneView.swift */,
 				FE52047727984FD20039E63A /* InsertCodeView.swift */,
+				FE52047F27985FB70039E63A /* InsertNicknameView.swift */,
+				FE52047B27985EAE0039E63A /* InsertEmailView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -221,6 +232,7 @@
 		FEF232FA2796996E0082EBCC /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				FE52048127986BD90039E63A /* AuthManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -369,15 +381,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE52048027985FB70039E63A /* InsertNicknameView.swift in Sources */,
+				FE52048227986BD90039E63A /* AuthManager.swift in Sources */,
 				FE5204712797FD240039E63A /* UILabel++Extension.swift in Sources */,
 				FEF232FC27969A3C0082EBCC /* AuthPhoneNumberViewController.swift in Sources */,
 				FE52046D2797EB9C0039E63A /* AuthPhoneView.swift in Sources */,
+				FE52047E27985EFA0039E63A /* InsertNicknameViewController.swift in Sources */,
 				FE520456279721200039E63A /* InsertCodeViewController.swift in Sources */,
 				FE52046F2797F3610039E63A /* UIFont++Extension.swift in Sources */,
 				FE5204642797E8E20039E63A /* AuthPhoneNumberViewModel.swift in Sources */,
 				FE520459279721610039E63A /* InsertEmailViewController.swift in Sources */,
 				FE52045B279721860039E63A /* SelectGenderViewController.swift in Sources */,
 				FE5204612797E8410039E63A /* Observable.swift in Sources */,
+				FE52047C27985EAE0039E63A /* InsertEmailView.swift in Sources */,
 				FE52047827984FD20039E63A /* InsertCodeView.swift in Sources */,
 				FE675997279552C300B1C699 /* MainViewController.swift in Sources */,
 				FE675993279552C300B1C699 /* AppDelegate.swift in Sources */,

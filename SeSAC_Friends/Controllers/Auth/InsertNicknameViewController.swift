@@ -1,15 +1,15 @@
 //
-//  InsertEmailViewController.swift
+//  InsertNicknameViewController.swift
 //  SeSAC_Friends
 //
-//  Created by sungyeon kim on 2022/01/19.
+//  Created by sungyeon kim on 2022/01/20.
 //
 
 import UIKit
 
-class InsertEmailViewController: UIViewController {
+class InsertNicknameViewController: UIViewController {
 
-    private let insertCodeView = InsertCodeView()
+    private let insertNicknameView = InsertNickNameView()
 //    private let AuthPhoneNumberViewModel = AuthPhoneNumberViewModel()
 
     deinit {
@@ -17,7 +17,7 @@ class InsertEmailViewController: UIViewController {
     }
 
     override func loadView() {
-        self.view = insertCodeView
+        self.view = insertNicknameView
 
     }
 
