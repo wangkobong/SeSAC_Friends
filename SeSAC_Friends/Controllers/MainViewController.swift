@@ -6,15 +6,15 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainViewController: UIViewController {
 
-    let verificationID = UserDefaults.standard.string(forKey: "authVerificationID")
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .black
+        try! Auth.auth().signOut()
+        view.backgroundColor = .yellow
+        let verificationID = UserDefaults.standard.string(forKey: "authVerificationID")
         print(verificationID)
     }
 

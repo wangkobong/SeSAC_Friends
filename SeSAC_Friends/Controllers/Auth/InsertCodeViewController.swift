@@ -10,7 +10,7 @@ import UIKit
 class InsertCodeViewController: UIViewController {
 
     private let insertCodeView = InsertCodeView()
-//    private let AuthPhoneNumberViewModel = AuthPhoneNumberViewModel()
+    private let insertCodeViewModel = InsertCodeViewModel()
 
     deinit {
         print("\(self) deinit")
@@ -25,21 +25,34 @@ class InsertCodeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
 
+        insertCodeViewModel.smsCode.bind { text in
+            self.insertCodeView.SMSCodeTextField.text = text
+        }
+
+        insertCodeView.SMSCodeTextField.addTarget(self, action: #selector(smsCodeFieldChange(_:)), for: .editingChanged)
+
         insertCodeView.authButton.addTarget(self, action: #selector(didTapSend), for: .touchUpInside)
 
     }
-    @objc private func didTapSend() {
-        if let text = insertCodeView.SMSCodeTextField.text, !text.isEmpty {
-            let code = text
-            AuthManager.shared.verifyCode(smsCode: code) { [weak self] success in
-                guard success else { return }
-                DispatchQueue.main.async {
-                    let vc = InsertEmailViewController()
-                    vc.title = "이메일"
-                    self?.navigationController?.pushViewController(vc, animated: true)
+
+    func sendSMSCode() {
+        insertCodeViewModel.sendSMSCode { success in
+            if success {
+                FirebaseManager.shared.checkToken { token, error in
+                    guard let token = token else { return print(#function, error) }
+                    UserDefaults.standard.set(token, forKey: "authVerificationID")
+                    AuthManager.checkSignUp(token: token)
                 }
             }
         }
+    }
+
+    @objc private func didTapSend() {
+        sendSMSCode()
+    }
+
+    @objc private func smsCodeFieldChange(_ textfield: UITextField) {
+        insertCodeViewModel.smsCode.value = textfield.text ?? ""
     }
 
 //    @objc private func didTapRequestSMS() {

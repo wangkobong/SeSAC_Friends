@@ -25,7 +25,11 @@
 		FE52047C27985EAE0039E63A /* InsertEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52047B27985EAE0039E63A /* InsertEmailView.swift */; };
 		FE52047E27985EFA0039E63A /* InsertNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52047D27985EFA0039E63A /* InsertNicknameViewController.swift */; };
 		FE52048027985FB70039E63A /* InsertNicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52047F27985FB70039E63A /* InsertNicknameView.swift */; };
-		FE52048227986BD90039E63A /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52048127986BD90039E63A /* AuthManager.swift */; };
+		FE52048227986BD90039E63A /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52048127986BD90039E63A /* FirebaseManager.swift */; };
+		FE520484279904FF0039E63A /* InsertCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE520483279904FF0039E63A /* InsertCodeViewModel.swift */; };
+		FE520486279909360039E63A /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE520485279909360039E63A /* AuthManager.swift */; };
+		FE520488279909820039E63A /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE520487279909820039E63A /* EndPoint.swift */; };
+		FE52048B27992A580039E63A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FE52048A27992A580039E63A /* Alamofire */; };
 		FE675993279552C300B1C699 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675992279552C300B1C699 /* AppDelegate.swift */; };
 		FE675995279552C300B1C699 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675994279552C300B1C699 /* SceneDelegate.swift */; };
 		FE675997279552C300B1C699 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675996279552C300B1C699 /* MainViewController.swift */; };
@@ -55,7 +59,10 @@
 		FE52047B27985EAE0039E63A /* InsertEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertEmailView.swift; sourceTree = "<group>"; };
 		FE52047D27985EFA0039E63A /* InsertNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertNicknameViewController.swift; sourceTree = "<group>"; };
 		FE52047F27985FB70039E63A /* InsertNicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertNicknameView.swift; sourceTree = "<group>"; };
-		FE52048127986BD90039E63A /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		FE52048127986BD90039E63A /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		FE520483279904FF0039E63A /* InsertCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertCodeViewModel.swift; sourceTree = "<group>"; };
+		FE520485279909360039E63A /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		FE520487279909820039E63A /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		FE67598F279552C300B1C699 /* SeSAC_Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC_Friends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE675992279552C300B1C699 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE675994279552C300B1C699 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +81,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE52046A2797EB760039E63A /* SnapKit in Frameworks */,
+				FE52048B27992A580039E63A /* Alamofire in Frameworks */,
 				FE5204672797EB620039E63A /* Toast in Frameworks */,
 				F9FA4AF40C7C88234B27CDE7 /* Pods_SeSAC_Friends.framework in Frameworks */,
 			);
@@ -133,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				FE5204632797E8E20039E63A /* AuthPhoneNumberViewModel.swift */,
+				FE520483279904FF0039E63A /* InsertCodeViewModel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -225,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				FE5204602797E8410039E63A /* Observable.swift */,
+				FE520487279909820039E63A /* EndPoint.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -232,7 +242,8 @@
 		FEF232FA2796996E0082EBCC /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				FE52048127986BD90039E63A /* AuthManager.swift */,
+				FE52048127986BD90039E63A /* FirebaseManager.swift */,
+				FE520485279909360039E63A /* AuthManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -259,6 +270,7 @@
 			packageProductDependencies = (
 				FE5204662797EB620039E63A /* Toast */,
 				FE5204692797EB760039E63A /* SnapKit */,
+				FE52048A27992A580039E63A /* Alamofire */,
 			);
 			productName = SeSAC_Friends;
 			productReference = FE67598F279552C300B1C699 /* SeSAC_Friends.app */;
@@ -291,6 +303,7 @@
 			packageReferences = (
 				FE5204652797EB620039E63A /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				FE5204682797EB760039E63A /* XCRemoteSwiftPackageReference "SnapKit" */,
+				FE52048927992A580039E63A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = FE675990279552C300B1C699 /* Products */;
 			projectDirPath = "";
@@ -382,7 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE52048027985FB70039E63A /* InsertNicknameView.swift in Sources */,
-				FE52048227986BD90039E63A /* AuthManager.swift in Sources */,
+				FE52048227986BD90039E63A /* FirebaseManager.swift in Sources */,
 				FE5204712797FD240039E63A /* UILabel++Extension.swift in Sources */,
 				FEF232FC27969A3C0082EBCC /* AuthPhoneNumberViewController.swift in Sources */,
 				FE52046D2797EB9C0039E63A /* AuthPhoneView.swift in Sources */,
@@ -390,8 +403,11 @@
 				FE520456279721200039E63A /* InsertCodeViewController.swift in Sources */,
 				FE52046F2797F3610039E63A /* UIFont++Extension.swift in Sources */,
 				FE5204642797E8E20039E63A /* AuthPhoneNumberViewModel.swift in Sources */,
+				FE520486279909360039E63A /* AuthManager.swift in Sources */,
 				FE520459279721610039E63A /* InsertEmailViewController.swift in Sources */,
 				FE52045B279721860039E63A /* SelectGenderViewController.swift in Sources */,
+				FE520488279909820039E63A /* EndPoint.swift in Sources */,
+				FE520484279904FF0039E63A /* InsertCodeViewModel.swift in Sources */,
 				FE5204612797E8410039E63A /* Observable.swift in Sources */,
 				FE52047C27985EAE0039E63A /* InsertEmailView.swift in Sources */,
 				FE52047827984FD20039E63A /* InsertCodeView.swift in Sources */,
@@ -628,6 +644,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		FE52048927992A580039E63A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -640,6 +664,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FE5204682797EB760039E63A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		FE52048A27992A580039E63A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE52048927992A580039E63A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -11,7 +11,14 @@ class AuthPhoneNumberViewModel {
 
     var phoneNumber: Observable<String> = Observable("")
 
-    public func startAuth() {
-        print(phoneNumber.value)
+    public func startAuth(completion: @escaping (Bool) -> Void) {
+        guard phoneNumber.value != "" else { return }
+        FirebaseManager.shared.startAuth(phoneNumber: "+82\(phoneNumber.value)") { success in
+            if success {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
     }
 }

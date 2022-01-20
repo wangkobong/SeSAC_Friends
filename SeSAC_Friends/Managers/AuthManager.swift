@@ -4,45 +4,27 @@
 //
 //  Created by sungyeon kim on 2022/01/20.
 //
-import FirebaseAuth
+
 import Foundation
+import Alamofire
 
 class AuthManager {
-    static let shared = AuthManager()
 
-    private let auth = Auth.auth()
+    static func checkSignUp(token: String) {
 
-    private var verificationId: String?
+        let url = "http://test.monocoding.com:35484/user"
+        let header: HTTPHeaders = [
+            "idtoken": token
+        ]
 
-    public func startAuth(phoneNumber: String, completion: @escaping (Bool) -> Void) {
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { [weak self] verificationId, error in
-            guard let verificationId = verificationId, error == nil else {
-                return
+        AF.request(url, method: .get, headers: header).validate(statusCode: 200...500).responseString { response in
+            switch response.result {
+            case.success(let value):
+                print("value: \(value)")
+                print("response: \(response)")
+            case.failure(let error):
+                print(error)
             }
-            self?.verificationId = verificationId
-
-            completion(true)
         }
     }
-
-    public func verifyCode(smsCode: String, completion: @escaping (Bool) -> Void) {
-        guard let verificationId = verificationId else {
-            completion(false)
-            return
-        }
-
-        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationId, verificationCode: smsCode)
-
-        auth.signIn(with: credential) { result, error in
-            guard result != nil, error == nil else {
-                completion(false)
-                return
-            }
-            print("verificationId:\(verificationId)")
-            print("credential:\(credential)")
-            UserDefaults.standard.set(verificationId, forKey: "authVerificationID")
-            completion(true)
-        }
-    }
-
 }

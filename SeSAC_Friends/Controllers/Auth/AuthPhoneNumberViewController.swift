@@ -10,7 +10,7 @@ import UIKit
 class AuthPhoneNumberViewController: UIViewController {
 
     let authPhoneNumberView = AuthPhoneView()
-//    private let AuthPhoneNumberViewModel = AuthPhoneNumberViewModel()
+    let authPhoneNumberViewModel = AuthPhoneNumberViewModel()
 
     deinit {
         print("\(self) deinit")
@@ -24,44 +24,47 @@ class AuthPhoneNumberViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        FirebaseManager.shared.checkToken { token, _ in
+            print("token: \(token)")
+        }
         authPhoneNumberView.phoneNumberTextField.delegate = self
+
+        authPhoneNumberViewModel.phoneNumber.bind { text in
+            self.authPhoneNumberView.phoneNumberTextField.text = text
+        }
+
+        authPhoneNumberView.phoneNumberTextField.addTarget(self, action: #selector(phoneNumberFieldChange(_:)), for: .editingChanged)
 
         authPhoneNumberView.getSMSButton.addTarget(self, action: #selector(didTapRequestSMS), for: .touchUpInside)
 
     }
 
-    @objc private func didTapRequestSMS() {
-//        let vc = InsertCodeViewController()
-//        navigationController?.pushViewController(vc, animated: true)}
-        if let text = authPhoneNumberView.phoneNumberTextField.text, !text.isEmpty {
-            let number = "+82\(text)"
-            AuthManager.shared.startAuth(phoneNumber: number) { [weak self] success in
-                guard success else { return }
+    func requestSMS() {
+        authPhoneNumberViewModel.startAuth { [weak self] success in
+            if success {
                 DispatchQueue.main.async {
                     let vc = InsertCodeViewController()
-                    vc.title = "Enter Code"
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
+            } else {
+                print("문자인증실패")
             }
         }
+
+    }
+
+    @objc private func phoneNumberFieldChange(_ textfield: UITextField) {
+        authPhoneNumberViewModel.phoneNumber.value = textfield.text ?? ""
+    }
+
+    @objc private func didTapRequestSMS() {
+        requestSMS()
     }
 }
 
 extension AuthPhoneNumberViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print(#function)
-        textField.resignFirstResponder()
-        if let text = textField.text, !text.isEmpty {
-            let number = "+82"
-            AuthManager.shared.startAuth(phoneNumber: number) { [weak self] success in
-                guard success else { return }
-                DispatchQueue.main.async {
-                    let vc = InsertCodeViewController()
-                    vc.title = "Enter Code"
-                    self?.navigationController?.pushViewController(vc, animated: true)
-                }
-            }
-        }
+        requestSMS()
         return true
     }
 
