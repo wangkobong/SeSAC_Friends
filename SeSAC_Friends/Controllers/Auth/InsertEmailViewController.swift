@@ -9,7 +9,7 @@ import UIKit
 
 class InsertEmailViewController: UIViewController {
 
-    private let insertCodeView = InsertCodeView()
+    private let insertNicknameView = InsertNickNameView()
 //    private let AuthPhoneNumberViewModel = AuthPhoneNumberViewModel()
 
     deinit {
@@ -17,7 +17,7 @@ class InsertEmailViewController: UIViewController {
     }
 
     override func loadView() {
-        self.view = insertCodeView
+        self.view = insertNicknameView
 
     }
 

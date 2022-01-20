@@ -10,7 +10,7 @@ import Alamofire
 
 class AuthManager {
 
-    static func checkSignUp(token: String) {
+    static func checkSignUp(token: String, completion: @escaping (Bool, Int?) -> Void) {
 
         let url = "http://test.monocoding.com:35484/user"
         let header: HTTPHeaders = [
@@ -19,11 +19,12 @@ class AuthManager {
 
         AF.request(url, method: .get, headers: header).validate(statusCode: 200...500).responseString { response in
             switch response.result {
-            case.success(let value):
-                print("value: \(value)")
-                print("response: \(response)")
+            case.success:
+                let code = response.response?.statusCode
+                completion(true, code)
             case.failure(let error):
                 print(error)
+                completion(false, nil)
             }
         }
     }

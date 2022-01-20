@@ -30,6 +30,9 @@
 		FE520486279909360039E63A /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE520485279909360039E63A /* AuthManager.swift */; };
 		FE520488279909820039E63A /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE520487279909820039E63A /* EndPoint.swift */; };
 		FE52048B27992A580039E63A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FE52048A27992A580039E63A /* Alamofire */; };
+		FE52048D27996CDC0039E63A /* InsertUserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52048C27996CDC0039E63A /* InsertUserInfoViewModel.swift */; };
+		FE52048F27996E1E0039E63A /* InsertBirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52048E27996E1E0039E63A /* InsertBirthViewController.swift */; };
+		FE52049127996E330039E63A /* InsertBirthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52049027996E330039E63A /* InsertBirthView.swift */; };
 		FE675993279552C300B1C699 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675992279552C300B1C699 /* AppDelegate.swift */; };
 		FE675995279552C300B1C699 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675994279552C300B1C699 /* SceneDelegate.swift */; };
 		FE675997279552C300B1C699 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE675996279552C300B1C699 /* MainViewController.swift */; };
@@ -63,6 +66,9 @@
 		FE520483279904FF0039E63A /* InsertCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertCodeViewModel.swift; sourceTree = "<group>"; };
 		FE520485279909360039E63A /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FE520487279909820039E63A /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		FE52048C27996CDC0039E63A /* InsertUserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertUserInfoViewModel.swift; sourceTree = "<group>"; };
+		FE52048E27996E1E0039E63A /* InsertBirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertBirthViewController.swift; sourceTree = "<group>"; };
+		FE52049027996E330039E63A /* InsertBirthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertBirthView.swift; sourceTree = "<group>"; };
 		FE67598F279552C300B1C699 /* SeSAC_Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC_Friends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE675992279552C300B1C699 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE675994279552C300B1C699 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,8 +118,9 @@
 			children = (
 				FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */,
 				FE520455279721200039E63A /* InsertCodeViewController.swift */,
-				FE520458279721610039E63A /* InsertEmailViewController.swift */,
 				FE52047D27985EFA0039E63A /* InsertNicknameViewController.swift */,
+				FE52048E27996E1E0039E63A /* InsertBirthViewController.swift */,
+				FE520458279721610039E63A /* InsertEmailViewController.swift */,
 				FE52045A279721860039E63A /* SelectGenderViewController.swift */,
 			);
 			path = Auth;
@@ -142,6 +149,7 @@
 			children = (
 				FE5204632797E8E20039E63A /* AuthPhoneNumberViewModel.swift */,
 				FE520483279904FF0039E63A /* InsertCodeViewModel.swift */,
+				FE52048C27996CDC0039E63A /* InsertUserInfoViewModel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -152,6 +160,7 @@
 				FE52046C2797EB9C0039E63A /* AuthPhoneView.swift */,
 				FE52047727984FD20039E63A /* InsertCodeView.swift */,
 				FE52047F27985FB70039E63A /* InsertNicknameView.swift */,
+				FE52049027996E330039E63A /* InsertBirthView.swift */,
 				FE52047B27985EAE0039E63A /* InsertEmailView.swift */,
 			);
 			path = Auth;
@@ -401,14 +410,17 @@
 				FE52046D2797EB9C0039E63A /* AuthPhoneView.swift in Sources */,
 				FE52047E27985EFA0039E63A /* InsertNicknameViewController.swift in Sources */,
 				FE520456279721200039E63A /* InsertCodeViewController.swift in Sources */,
+				FE52048F27996E1E0039E63A /* InsertBirthViewController.swift in Sources */,
 				FE52046F2797F3610039E63A /* UIFont++Extension.swift in Sources */,
 				FE5204642797E8E20039E63A /* AuthPhoneNumberViewModel.swift in Sources */,
 				FE520486279909360039E63A /* AuthManager.swift in Sources */,
 				FE520459279721610039E63A /* InsertEmailViewController.swift in Sources */,
+				FE52048D27996CDC0039E63A /* InsertUserInfoViewModel.swift in Sources */,
 				FE52045B279721860039E63A /* SelectGenderViewController.swift in Sources */,
 				FE520488279909820039E63A /* EndPoint.swift in Sources */,
 				FE520484279904FF0039E63A /* InsertCodeViewModel.swift in Sources */,
 				FE5204612797E8410039E63A /* Observable.swift in Sources */,
+				FE52049127996E330039E63A /* InsertBirthView.swift in Sources */,
 				FE52047C27985EAE0039E63A /* InsertEmailView.swift in Sources */,
 				FE52047827984FD20039E63A /* InsertCodeView.swift in Sources */,
 				FE675997279552C300B1C699 /* MainViewController.swift in Sources */,

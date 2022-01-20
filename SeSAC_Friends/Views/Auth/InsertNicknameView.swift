@@ -86,10 +86,9 @@ class InsertNickNameView: UIView {
         }
 
         descriptionLabel.snp.makeConstraints {
-            $0.height.equalTo(64)
-            $0.leading.equalTo(self).offset(74)
-            $0.trailing.equalTo(self).offset(-73)
-            $0.bottom.equalTo(nicknamerTextField.snp.top).offset(-77)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(nicknamerTextField.snp.top).offset(-93)
+            $0.height.equalTo(32)
         }
     }
 }

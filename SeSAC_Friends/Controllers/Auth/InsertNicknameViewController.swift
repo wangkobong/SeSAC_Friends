@@ -25,12 +25,12 @@ class InsertNicknameViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
 
-//        AuthPhoneNumberView.getSMSButton.addTarget(self, action: #selector(didTapRequestSMS), for: .touchUpInside)
+        insertNicknameView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
 
     }
 
-//    @objc private func didTapRequestSMS() {
-//        let vc = InsertCodeViewController()
-//        navigationController?.pushViewController(vc, animated: true)}
+    @objc private func didTapNext() {
+        let vc = InsertBirthViewController()
+        navigationController?.pushViewController(vc, animated: true)}
 
 }

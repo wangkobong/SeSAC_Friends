@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 class InsertCodeViewController: UIViewController {
 
@@ -36,12 +37,25 @@ class InsertCodeViewController: UIViewController {
     }
 
     func sendSMSCode() {
-        insertCodeViewModel.sendSMSCode { success in
+        insertCodeViewModel.sendSMSCode { [weak self] success in
             if success {
                 FirebaseManager.shared.checkToken { token, error in
                     guard let token = token else { return print(#function, error) }
+                    print(self, token)
                     UserDefaults.standard.set(token, forKey: "authVerificationID")
-                    AuthManager.checkSignUp(token: token)
+                    AuthManager.checkSignUp(token: token) { success, statusCode in
+                        if statusCode != 201 {
+                            print("여기서 탈퇴여부확인")
+                        } else if statusCode == 201 {
+                            DispatchQueue.main.async {
+                                let vc = InsertEmailViewController()
+                                self?.navigationController?.pushViewController(vc, animated: true)
+                            }
+                        } else {
+                            print("success: \(success)")
+                            print("statusCode: \(statusCode)")
+                        }
+                    }
                 }
             }
         }
