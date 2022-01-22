@@ -31,6 +31,8 @@ class InsertNicknameViewController: UIViewController {
 
     @objc private func didTapNext() {
         let vc = InsertBirthViewController()
-        navigationController?.pushViewController(vc, animated: true)}
+        navigationController?.pushViewController(vc, animated: true)
+
+    }
 
 }

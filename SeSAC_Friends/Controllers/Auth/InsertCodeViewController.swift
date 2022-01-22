@@ -40,7 +40,7 @@ class InsertCodeViewController: UIViewController {
         insertCodeViewModel.sendSMSCode { [weak self] success in
             if success {
                 FirebaseManager.shared.checkToken { token, error in
-                    guard let token = token else { return print(#function, error) }
+                    guard let token = token else { return print(#function, error!) }
                     print(self, token)
                     UserDefaults.standard.set(token, forKey: "authVerificationID")
                     AuthManager.checkSignUp(token: token) { success, statusCode in

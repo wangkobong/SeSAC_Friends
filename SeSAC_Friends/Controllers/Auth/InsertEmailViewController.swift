@@ -9,6 +9,8 @@ import UIKit
 
 class InsertEmailViewController: UIViewController {
 
+    var userBirth: Date?
+
     private let insertNicknameView = InsertNickNameView()
 //    private let AuthPhoneNumberViewModel = AuthPhoneNumberViewModel()
 
@@ -24,7 +26,7 @@ class InsertEmailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-
+        print(#function, userBirth)
 //        AuthPhoneNumberView.getSMSButton.addTarget(self, action: #selector(didTapRequestSMS), for: .touchUpInside)
 
     }
