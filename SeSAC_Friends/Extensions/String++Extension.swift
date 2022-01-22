@@ -11,11 +11,15 @@ extension String {
     enum ValidityType {
         case age
         case email
+        case code
+        case nickname
     }
 
     enum Regex: String {
         case age = "[0-9]{2,2}"
         case email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z.]{2,64}"
+        case code = "[0-9]{6}"
+        case nickname = ".{1,10}"
     }
 
     func substring(fromIndex: Int, count: Int) -> String {
@@ -34,6 +38,10 @@ extension String {
             regex = Regex.age.rawValue
         case .email:
             regex = Regex.email.rawValue
+        case .code:
+            regex = Regex.code.rawValue
+        case .nickname:
+            regex = Regex.nickname.rawValue
         }
 
         return NSPredicate(format: format, regex).evaluate(with: self)

@@ -27,12 +27,21 @@ class InsertNicknameViewController: UIViewController {
 
         insertNicknameView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
 
+        insertNicknameView.nicknamerTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
+
     }
 
     @objc private func didTapNext() {
         let vc = InsertBirthViewController()
         navigationController?.pushViewController(vc, animated: true)
 
+    }
+
+    @objc fileprivate func handleTextChange() {
+        let textField = insertNicknameView.nicknamerTextField
+        let button = insertNicknameView.nextButton
+
+        checkValidation(textField: textField, button: button, validityType: .nickname)
     }
 
 }

@@ -42,6 +42,9 @@
 		FE83FD3127969B3500184A14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE83FD3027969B3500184A14 /* GoogleService-Info.plist */; };
 		FE9F94FE279BFC4C002FFF3E /* Date++Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F94FD279BFC4C002FFF3E /* Date++Extension.swift */; };
 		FE9F9500279BFE14002FFF3E /* String++Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F94FF279BFE14002FFF3E /* String++Extension.swift */; };
+		FE9F9502279C32FC002FFF3E /* SelectGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F9501279C32FC002FFF3E /* SelectGenderView.swift */; };
+		FE9F9506279C3715002FFF3E /* MaleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9F9505279C3715002FFF3E /* MaleView.xib */; };
+		FE9F9508279C4F8F002FFF3E /* UIViewController++Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F9507279C4F8F002FFF3E /* UIViewController++Extension.swift */; };
 		FEF232F5279698760082EBCC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FEF232F4279698760082EBCC /* .swiftlint.yml */; };
 		FEF232FC27969A3C0082EBCC /* AuthPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */; };
 /* End PBXBuildFile section */
@@ -83,6 +86,9 @@
 		FE83FD3027969B3500184A14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FE9F94FD279BFC4C002FFF3E /* Date++Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date++Extension.swift"; sourceTree = "<group>"; };
 		FE9F94FF279BFE14002FFF3E /* String++Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String++Extension.swift"; sourceTree = "<group>"; };
+		FE9F9501279C32FC002FFF3E /* SelectGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGenderView.swift; sourceTree = "<group>"; };
+		FE9F9505279C3715002FFF3E /* MaleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaleView.xib; sourceTree = "<group>"; };
+		FE9F9507279C4F8F002FFF3E /* UIViewController++Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController++Extension.swift"; sourceTree = "<group>"; };
 		FEF232F4279698760082EBCC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPhoneNumberViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +147,7 @@
 				FE5204922799B7930039E63A /* TextField++Extension.swift */,
 				FE9F94FD279BFC4C002FFF3E /* Date++Extension.swift */,
 				FE9F94FF279BFE14002FFF3E /* String++Extension.swift */,
+				FE9F9507279C4F8F002FFF3E /* UIViewController++Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -149,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				FE52046B2797EB880039E63A /* Auth */,
+				FE9F9505279C3715002FFF3E /* MaleView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +179,7 @@
 				FE52047F27985FB70039E63A /* InsertNicknameView.swift */,
 				FE52049027996E330039E63A /* InsertBirthView.swift */,
 				FE52047B27985EAE0039E63A /* InsertEmailView.swift */,
+				FE9F9501279C32FC002FFF3E /* SelectGenderView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -339,6 +348,7 @@
 			files = (
 				FE520476279800E50039E63A /* NotoSansKR-Medium.otf in Resources */,
 				FEF232F5279698760082EBCC /* .swiftlint.yml in Resources */,
+				FE9F9506279C3715002FFF3E /* MaleView.xib in Resources */,
 				FE83FD3127969B3500184A14 /* GoogleService-Info.plist in Resources */,
 				FE67599F279552C500B1C699 /* LaunchScreen.storyboard in Resources */,
 				FE67599C279552C500B1C699 /* Assets.xcassets in Resources */,
@@ -416,6 +426,7 @@
 				FE9F94FE279BFC4C002FFF3E /* Date++Extension.swift in Sources */,
 				FE52048227986BD90039E63A /* FirebaseManager.swift in Sources */,
 				FE5204712797FD240039E63A /* UILabel++Extension.swift in Sources */,
+				FE9F9508279C4F8F002FFF3E /* UIViewController++Extension.swift in Sources */,
 				FEF232FC27969A3C0082EBCC /* AuthPhoneNumberViewController.swift in Sources */,
 				FE52046D2797EB9C0039E63A /* AuthPhoneView.swift in Sources */,
 				FE52047E27985EFA0039E63A /* InsertNicknameViewController.swift in Sources */,
@@ -437,6 +448,7 @@
 				FE52047827984FD20039E63A /* InsertCodeView.swift in Sources */,
 				FE675997279552C300B1C699 /* MainViewController.swift in Sources */,
 				FE675993279552C300B1C699 /* AppDelegate.swift in Sources */,
+				FE9F9502279C32FC002FFF3E /* SelectGenderView.swift in Sources */,
 				FE675995279552C300B1C699 /* SceneDelegate.swift in Sources */,
 				FE52047A279853C90039E63A /* UIColor++Extension.swift in Sources */,
 			);
@@ -587,6 +599,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -596,7 +609,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -615,6 +628,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,7 +638,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

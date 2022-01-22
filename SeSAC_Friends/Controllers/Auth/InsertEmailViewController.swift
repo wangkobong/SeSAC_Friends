@@ -40,17 +40,10 @@ class InsertEmailViewController: UIViewController {
     }
 
     @objc fileprivate func handleTextChange() {
-        guard let text = insertEmailView.emailTextField.text else { return }
-        print(text)
-        DispatchQueue.main.async {
-            if text.isValid(self.validityType) {
-                self.insertEmailView.nextButton3.backgroundColor = UIColor.brandColor(.green)
-                self.insertEmailView.nextButton3.isEnabled = true
-            } else {
-                self.insertEmailView.nextButton3.backgroundColor = UIColor.brandColor(.gray6)
-                self.insertEmailView.nextButton3.isEnabled = false
-            }
-        }
+        let textField = insertEmailView.emailTextField
+        let button = insertEmailView.nextButton3
+
+        checkValidation(textField: textField, button: button, validityType: .email)
     }
 
 }

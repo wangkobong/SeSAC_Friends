@@ -62,11 +62,14 @@ class InsertCodeViewController: UIViewController {
     }
 
     @objc private func didTapSend() {
-        sendSMSCode()
+//        sendSMSCode()
+        print(#function)
     }
 
     @objc private func smsCodeFieldChange(_ textfield: UITextField) {
         insertCodeViewModel.smsCode.value = textfield.text ?? ""
+        let authButton = insertCodeView.authButton
+        checkValidation(textField: textfield, button: authButton, validityType: .code)
     }
 
 //    @objc private func didTapRequestSMS() {

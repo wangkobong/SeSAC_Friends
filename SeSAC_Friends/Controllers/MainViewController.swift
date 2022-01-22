@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         try! Auth.auth().signOut()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .systemBackground
         let verificationID = UserDefaults.standard.string(forKey: "authVerificationID")
         print(verificationID)
     }
