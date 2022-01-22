@@ -42,7 +42,6 @@ class InsertBirthViewController: UIViewController {
 
     func slicingDate(datePicker: UIDatePicker) {
         let selectedDay = datePicker.date
-        print(selectedDay)
         let selectedDayToString = selectedDay.dateToString(date: selectedDay)
         let year = selectedDayToString.substring(fromIndex: 0, count: 4)
         let month = selectedDayToString.substring(fromIndex: 5, count: 2)
@@ -54,14 +53,13 @@ class InsertBirthViewController: UIViewController {
         self.calculatedAge = selectedDay.getAge(birthDay: selectedDay)
     }
 
-    @objc private func didTapNext() {
+    private func pushVC() {
         let vc = InsertEmailViewController()
 
         guard let passDate = birthDate else {
             self.view.makeToast("생년월일을 선택해주세요.", duration: 1.5, position: .center, title: "날짜선택안됨")
             return
         }
-        print(calculatedAge!)
         guard calculatedAge! >= 17 else {
             self.view.makeToast("17세 이상만 가입 가능합니다.", duration: 1.5, position: .center, title: "연령제한")
             return
@@ -69,7 +67,10 @@ class InsertBirthViewController: UIViewController {
 
         vc.userBirth = passDate
         navigationController?.pushViewController(vc, animated: true)
+    }
 
+    @objc private func didTapNext() {
+        pushVC()
     }
 
     @objc func tapYearDone() {
@@ -89,5 +90,8 @@ class InsertBirthViewController: UIViewController {
 }
 
 extension InsertBirthViewController: UITextFieldDelegate {
-
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        pushVC()
+        return true
+    }
 }

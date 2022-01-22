@@ -10,16 +10,16 @@ import UIKit
 class InsertEmailViewController: UIViewController {
 
     var userBirth: Date?
+    let validityType: String.ValidityType = .email
 
-    private let insertNicknameView = InsertNickNameView()
-//    private let AuthPhoneNumberViewModel = AuthPhoneNumberViewModel()
+    private let insertEmailView = InsertEmailView()
 
     deinit {
         print("\(self) deinit")
     }
 
     override func loadView() {
-        self.view = insertNicknameView
+        self.view = insertEmailView
 
     }
 
@@ -27,12 +27,30 @@ class InsertEmailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         print(#function, userBirth)
-//        AuthPhoneNumberView.getSMSButton.addTarget(self, action: #selector(didTapRequestSMS), for: .touchUpInside)
+
+        insertEmailView.nextButton3.addTarget(self, action: #selector(didTabNext), for: .touchUpInside)
+
+        insertEmailView.emailTextField.addTarget(self, action: #selector(handleTextChange), for: .editingChanged)
 
     }
+    @objc private func didTabNext() {
+        let vc = SelectGenderViewController()
+//        vc.userBirth = passDate
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
-//    @objc private func didTapRequestSMS() {
-//        let vc = InsertCodeViewController()
-//        navigationController?.pushViewController(vc, animated: true)}
+    @objc fileprivate func handleTextChange() {
+        guard let text = insertEmailView.emailTextField.text else { return }
+        print(text)
+        DispatchQueue.main.async {
+            if text.isValid(self.validityType) {
+                self.insertEmailView.nextButton3.backgroundColor = UIColor.brandColor(.green)
+                self.insertEmailView.nextButton3.isEnabled = true
+            } else {
+                self.insertEmailView.nextButton3.backgroundColor = UIColor.brandColor(.gray6)
+                self.insertEmailView.nextButton3.isEnabled = false
+            }
+        }
+    }
 
 }

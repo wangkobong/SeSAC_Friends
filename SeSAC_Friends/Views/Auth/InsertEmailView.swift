@@ -10,13 +10,14 @@ import SnapKit
 
 class InsertEmailView: UIView {
 
-    let getSMSButton: UIButton = {
+    let nextButton3: UIButton = {
          let button = UIButton()
          button.backgroundColor = UIColor(named: "BrandGray6")
-         button.setTitle("인증 문자 받기", for: .normal)
+         button.setTitle("다음", for: .normal)
          button.setTitleColor(UIColor(named: "BrandGray3"), for: .normal)
          button.layer.cornerRadius = 8
          button.layer.masksToBounds = true
+        button.isEnabled = false
          return button
      }()
 
@@ -26,21 +27,39 @@ class InsertEmailView: UIView {
         return view
     }()
 
-    let phoneNumberTextField: UITextField = {
+    let emailTextField: UITextField = {
        let field = UITextField()
-        field.placeholder = "휴대폰 번호(-없이 숫자만 입력)"
+        field.placeholder = "SeSAC@email.com"
         field.font = UIFont.NotoSans(.regular, size: 14)
-        field.keyboardType = .numberPad
+        field.autocapitalizationType = .none
+        field.autocorrectionType = .no
+        field.keyboardType = .emailAddress
 
         return field
     }()
+    let stackView: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 0
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
 
-    let descriptionLabel: UILabel = {
+    let resultLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.NotoSans(.regular, size: 20)
-        label.text = "새싹 서비스 이용을 위해 \n휴대폰 번호를 입력해 주세요"
+        label.text = "이메일을 입력해 주세요"
+        label.textColor = UIColor.brandColor(.black)
         label.numberOfLines = 0
-        label.addInterlineSpacing(spacingValue: 3)
+        label.textAlignment = .center
+        return label
+    }()
+
+    let secondLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.NotoSans(.regular, size: 16)
+        label.textColor = UIColor.brandColor(.gray7)
+        label.text = "(휴대폰 번호 변경 시 인증을 위해 사용해요)"
         label.textAlignment = .center
         return label
     }()
@@ -56,15 +75,36 @@ class InsertEmailView: UIView {
     }
 
     private func setupView() {
+        stackView.addArrangedSubview(resultLabel)
+        stackView.addArrangedSubview(secondLabel)
 
-        [getSMSButton, dividingLine, phoneNumberTextField, descriptionLabel].forEach {
+        [nextButton3, dividingLine, emailTextField, stackView].forEach {
             addSubview($0)
         }
     }
 
     private func setupConstraints() {
+        stackView.snp.makeConstraints {
+            $0.leading.equalTo(self).offset(57)
+            $0.trailing.equalTo(self).offset(-57)
+            $0.bottom.equalTo(emailTextField.snp.top).offset(-76)
+            $0.height.equalTo(66)
+        }
 
-        getSMSButton.snp.makeConstraints {
+        emailTextField.snp.makeConstraints {
+            $0.leading.equalTo(self).offset(28)
+            $0.height.equalTo(22)
+            $0.bottom.equalTo(dividingLine.snp.top).offset(-12)
+        }
+
+        dividingLine.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.leading.equalTo(self).offset(16)
+            $0.trailing.equalTo(self).offset(-16)
+            $0.bottom.equalTo(nextButton3.snp.top).offset(-72)
+        }
+
+        nextButton3.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.leading.equalTo(self).offset(16)
             $0.trailing.equalTo(self).offset(-16)
@@ -72,24 +112,5 @@ class InsertEmailView: UIView {
             $0.height.equalTo(48)
         }
 
-        dividingLine.snp.makeConstraints {
-            $0.height.equalTo(1)
-            $0.leading.equalTo(self).offset(16)
-            $0.trailing.equalTo(self).offset(-16)
-            $0.bottom.equalTo(getSMSButton.snp.top).offset(-72)
-        }
-
-        phoneNumberTextField.snp.makeConstraints {
-            $0.leading.equalTo(self).offset(28)
-            $0.height.equalTo(22)
-            $0.bottom.equalTo(dividingLine.snp.top).offset(-12)
-        }
-
-        descriptionLabel.snp.makeConstraints {
-            $0.height.equalTo(64)
-            $0.leading.equalTo(self).offset(74)
-            $0.trailing.equalTo(self).offset(-73)
-            $0.bottom.equalTo(phoneNumberTextField.snp.top).offset(-77)
-        }
     }
 }

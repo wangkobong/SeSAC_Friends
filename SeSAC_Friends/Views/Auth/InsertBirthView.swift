@@ -17,6 +17,7 @@ class InsertBirthView: UIView {
         button.setTitleColor(UIColor.brandColor(.gray3), for: .normal)
         button.layer.cornerRadius = 8
         button.layer.masksToBounds = true
+//        button.isEnabled = false
         return button
      }()
 
