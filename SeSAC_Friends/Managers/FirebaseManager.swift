@@ -53,6 +53,7 @@ class FirebaseManager {
             }
             let phoneNumber = Auth.auth().currentUser?.phoneNumber ?? ""
             UserDefaults.standard.set(phoneNumber, forKey: "phoneNumber")
+            UserDefaults.standard.set(token, forKey: "authVerificationID")
             completion(token, nil)
         })
     }

@@ -17,20 +17,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        print(Auth.auth().currentUser?.phoneNumber)
         self.window = UIWindow(windowScene: windowScene)
-        let vc = UINavigationController(rootViewController: InsertNicknameViewController())
-        window?.rootViewController = vc
-        window?.makeKeyAndVisible()
-
-//        if Auth.auth().currentUser == nil {
-//            let vc = AuthPhoneNumberViewController()
-//            vc.title = "문자인증"
-//            let navVC = UINavigationController(rootViewController: vc)
-//            window.rootViewController = navVC
-//        } else {
-//            window.rootViewController = MainViewController()
-//        }
+//        let vc = UINavigationController(rootViewController: AuthPhoneNumberViewController())
+//        window?.rootViewController = vc
+//        window?.makeKeyAndVisible()
+        let isSignedUp = UserDefaults.standard.bool(forKey: "isSignedUp")
+        print("isSignedUp: \(isSignedUp)")
+        if Auth.auth().currentUser == nil && !isSignedUp { // 문자인증X && 회원가입X
+            let vc = UINavigationController(rootViewController: AuthPhoneNumberViewController())
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
+        } else if Auth.auth().currentUser != nil && !isSignedUp { // 문자인증O && 회원가입X
+            let vc = UINavigationController(rootViewController: InsertNicknameViewController())
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
+        } else if Auth.auth().currentUser != nil && isSignedUp { // 문자인증O && 회원가입 O
+            let vc = UINavigationController(rootViewController: MainViewController())
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -26,6 +26,7 @@ class InsertCodeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
 
+        insertCodeView.SMSCodeTextField.becomeFirstResponder()
         insertCodeViewModel.smsCode.bind { text in
             self.insertCodeView.SMSCodeTextField.text = text
         }
@@ -33,6 +34,7 @@ class InsertCodeViewController: UIViewController {
         insertCodeView.SMSCodeTextField.addTarget(self, action: #selector(smsCodeFieldChange(_:)), for: .editingChanged)
 
         insertCodeView.authButton.addTarget(self, action: #selector(didTapSend), for: .touchUpInside)
+        view.makeToast("인증번호를 보냈습니다")
 
     }
 
@@ -40,13 +42,18 @@ class InsertCodeViewController: UIViewController {
         insertCodeViewModel.sendSMSCode { [weak self] success in
             if success {
                 FirebaseManager.shared.checkToken { token, error in
-                    guard let token = token else { return print(#function, error!) }
+                    guard let token = token, error == nil else {
+                        self?.view.makeToast("에러가 발생했습니다. 잠시 후 다시 시도해주세요", duration: 1.5, position: .center, title: "에러발생")
+                        return
+                    }
                     print(self, token)
                     UserDefaults.standard.set(token, forKey: "authVerificationID")
                     AuthManager.checkSignUp(token: token) { success, statusCode in
                         if success && statusCode == 200 {
-                            print("여기서 탈퇴여부확인")
-                            print(statusCode)
+                            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+                            let vc = UITabBarController()
+                            windowScene.windows.first?.rootViewController = vc
+                            windowScene.windows.first?.makeKeyAndVisible()
                         } else if success && statusCode == 201 {
                             DispatchQueue.main.async {
                                 let vc = InsertNicknameViewController()

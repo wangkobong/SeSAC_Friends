@@ -40,20 +40,26 @@ class SelectGenderViewController: UIViewController {
             if success {
                 switch code {
                 case 200:
+                    UserDefaults.standard.set(true, forKey: "isSignedUp")
                     DispatchQueue.main.async {
                         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
                         let vc = UITabBarController()
-                        let nav = UINavigationController(rootViewController: vc)
                         windowScene.windows.first?.rootViewController = vc
                         windowScene.windows.first?.makeKeyAndVisible()
                     }
                 case 201:
                     print("이미 가입한 유저")
                 case 202:
-                    print("사용할 수 없는 닉네임")
+                    let vc = InsertNicknameViewController()
+                    vc.isBack = true
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                case 401:
+                    print("401")
                 default:
                     print("")
                 }
+            } else {
+
             }
         }
     }
@@ -63,12 +69,10 @@ class SelectGenderViewController: UIViewController {
             genderNumber = 1
             selectGenderView.maleButton.backgroundColor = UIColor.brandColor(.whiteGreen)
             selectGenderView.femaleButton.backgroundColor = .systemBackground
-            print("genderNumber: \(genderNumber)")
         } else {
             genderNumber = 0
             selectGenderView.maleButton.backgroundColor = .systemBackground
             selectGenderView.femaleButton.backgroundColor = UIColor.brandColor(.whiteGreen)
-            print("genderNumber: \(genderNumber)")
         }
 
         if genderNumber != 3 {

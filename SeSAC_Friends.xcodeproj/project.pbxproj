@@ -48,6 +48,7 @@
 		FE9F950C279D112C002FFF3E /* oldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F950B279D112C002FFF3E /* oldTest.swift */; };
 		FE9F9510279D32A4002FFF3E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F950F279D32A4002FFF3E /* Constants.swift */; };
 		FE9F9512279D372F002FFF3E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F9511279D372F002FFF3E /* User.swift */; };
+		FE9F9516279D5B97002FFF3E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F9515279D5B97002FFF3E /* MainView.swift */; };
 		FEF232F5279698760082EBCC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FEF232F4279698760082EBCC /* .swiftlint.yml */; };
 		FEF232FC27969A3C0082EBCC /* AuthPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		FE9F950E279D158F002FFF3E /* SeSAC_Friends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSAC_Friends.entitlements; sourceTree = "<group>"; };
 		FE9F950F279D32A4002FFF3E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FE9F9511279D372F002FFF3E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FE9F9515279D5B97002FFF3E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FEF232F4279698760082EBCC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPhoneNumberViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +165,7 @@
 		FE52045D279722120039E63A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FE9F9514279D5B8B002FFF3E /* Main */,
 				FE52046B2797EB880039E63A /* Auth */,
 			);
 			path = Views;
@@ -243,6 +246,22 @@
 			path = font;
 			sourceTree = "<group>";
 		};
+		FE9F9513279D5B7F002FFF3E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FE675996279552C300B1C699 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		FE9F9514279D5B8B002FFF3E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FE9F9515279D5B97002FFF3E /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		FEF232F6279699370082EBCC /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,8 +273,8 @@
 		FEF232F72796994C0082EBCC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FE9F9513279D5B7F002FFF3E /* Main */,
 				FE520457279721410039E63A /* Auth */,
-				FE675996279552C300B1C699 /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -446,6 +465,7 @@
 				FE52047E27985EFA0039E63A /* InsertNicknameViewController.swift in Sources */,
 				FE520456279721200039E63A /* InsertCodeViewController.swift in Sources */,
 				FE52048F27996E1E0039E63A /* InsertBirthViewController.swift in Sources */,
+				FE9F9516279D5B97002FFF3E /* MainView.swift in Sources */,
 				FE5204932799B7930039E63A /* TextField++Extension.swift in Sources */,
 				FE52046F2797F3610039E63A /* UIFont++Extension.swift in Sources */,
 				FE5204642797E8E20039E63A /* AuthPhoneNumberViewModel.swift in Sources */,
