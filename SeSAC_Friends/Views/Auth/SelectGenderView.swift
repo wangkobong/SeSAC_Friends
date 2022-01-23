@@ -16,7 +16,6 @@ class SelectGenderView: UIView {
          button.setTitleColor(UIColor(named: "BrandGray3"), for: .normal)
          button.layer.cornerRadius = 8
          button.layer.masksToBounds = true
-        button.isEnabled = false
          return button
      }()
 

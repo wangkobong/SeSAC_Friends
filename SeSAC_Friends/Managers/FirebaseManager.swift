@@ -51,6 +51,8 @@ class FirebaseManager {
                 completion(nil, error)
                 return
             }
+            let phoneNumber = Auth.auth().currentUser?.phoneNumber ?? ""
+            UserDefaults.standard.set(phoneNumber, forKey: "phoneNumber")
             completion(token, nil)
         })
     }

@@ -11,6 +11,7 @@ import Toast
 class InsertBirthViewController: UIViewController {
 
     private let insertBirthView = InsertBirthView()
+    var nickname = ""
     private var birthDate: Date?
     private var calculatedAge: Int?
 
@@ -41,6 +42,7 @@ class InsertBirthViewController: UIViewController {
     }
 
     func slicingDate(datePicker: UIDatePicker) {
+        changeButton()
         let selectedDay = datePicker.date
         let selectedDayToString = selectedDay.dateToString(date: selectedDay)
         let year = selectedDayToString.substring(fromIndex: 0, count: 4)
@@ -56,7 +58,7 @@ class InsertBirthViewController: UIViewController {
     private func pushVC() {
         let vc = InsertEmailViewController()
 
-        guard let passDate = birthDate else {
+        guard let dateOfBirth = birthDate else {
             self.view.makeToast("생년월일을 선택해주세요.", duration: 1.5, position: .center, title: "날짜선택안됨")
             return
         }
@@ -64,9 +66,13 @@ class InsertBirthViewController: UIViewController {
             self.view.makeToast("17세 이상만 가입 가능합니다.", duration: 1.5, position: .center, title: "연령제한")
             return
         }
-
-        vc.userBirth = passDate
+        UserDefaults.standard.set("\(dateOfBirth)", forKey: "dateOfBirth")
         navigationController?.pushViewController(vc, animated: true)
+    }
+
+    private func changeButton() {
+        insertBirthView.nextButton2.backgroundColor = .brandColor(.green)
+        insertBirthView.nextButton2.isEnabled = true
     }
 
     @objc private func didTapNext() {
@@ -94,4 +100,5 @@ extension InsertBirthViewController: UITextFieldDelegate {
         pushVC()
         return true
     }
+
 }

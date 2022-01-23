@@ -13,7 +13,9 @@ extension UITextField {
         let screenWidth = UIScreen.main.bounds.width
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenWidth))// 1
         let dateFormatter = DateFormatter()
+        datePicker.date = Calendar.current.date(byAdding: .year, value: -18, to: Date())!
         datePicker.datePickerMode = .date // 2
+        datePicker.locale = Locale(identifier: "ko_KR")
         dateFormatter.locale = Locale(identifier: "ko_KR")
         // iOS 14 and above
         if #available(iOS 14, *) {// Added condition for iOS 14

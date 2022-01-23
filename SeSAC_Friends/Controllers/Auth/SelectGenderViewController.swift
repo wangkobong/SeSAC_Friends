@@ -10,6 +10,7 @@ import UIKit
 class SelectGenderViewController: UIViewController {
 
     private let selectGenderView = SelectGenderView()
+    private let signUpViewModel = SignUpViewModel()
     var genderNumber = 3
 
     override func loadView() {
@@ -24,6 +25,36 @@ class SelectGenderViewController: UIViewController {
 
         [selectGenderView.maleButton, selectGenderView.femaleButton].forEach {
             $0.addTarget(self, action: #selector(didTapGender), for: .touchUpInside)
+        }
+
+        selectGenderView.nextButton4.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
+    }
+
+    @objc private func didTapSignUp() {
+        print(#function)
+        UserDefaults.standard.set(genderNumber, forKey: "gender")
+        signUpViewModel.signUp { [weak self] success, code in
+//            guard let code = code else {
+//                return
+//            }
+            if success {
+                switch code {
+                case 200:
+                    DispatchQueue.main.async {
+                        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+                        let vc = UITabBarController()
+                        let nav = UINavigationController(rootViewController: vc)
+                        windowScene.windows.first?.rootViewController = vc
+                        windowScene.windows.first?.makeKeyAndVisible()
+                    }
+                case 201:
+                    print("이미 가입한 유저")
+                case 202:
+                    print("사용할 수 없는 닉네임")
+                default:
+                    print("")
+                }
+            }
         }
     }
 

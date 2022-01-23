@@ -44,11 +44,12 @@ class InsertCodeViewController: UIViewController {
                     print(self, token)
                     UserDefaults.standard.set(token, forKey: "authVerificationID")
                     AuthManager.checkSignUp(token: token) { success, statusCode in
-                        if statusCode != 201 {
+                        if success && statusCode == 200 {
                             print("여기서 탈퇴여부확인")
-                        } else if statusCode == 201 {
+                            print(statusCode)
+                        } else if success && statusCode == 201 {
                             DispatchQueue.main.async {
-                                let vc = InsertEmailViewController()
+                                let vc = InsertNicknameViewController()
                                 self?.navigationController?.pushViewController(vc, animated: true)
                             }
                         } else {
@@ -62,7 +63,7 @@ class InsertCodeViewController: UIViewController {
     }
 
     @objc private func didTapSend() {
-//        sendSMSCode()
+        sendSMSCode()
         print(#function)
     }
 

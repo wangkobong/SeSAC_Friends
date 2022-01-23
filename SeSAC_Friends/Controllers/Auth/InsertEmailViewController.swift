@@ -9,7 +9,6 @@ import UIKit
 
 class InsertEmailViewController: UIViewController {
 
-    var userBirth: Date?
     let validityType: String.ValidityType = .email
 
     private let insertEmailView = InsertEmailView()
@@ -26,7 +25,6 @@ class InsertEmailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        print(#function, userBirth)
 
         insertEmailView.nextButton3.addTarget(self, action: #selector(didTabNext), for: .touchUpInside)
 
@@ -35,7 +33,8 @@ class InsertEmailViewController: UIViewController {
     }
     @objc private func didTabNext() {
         let vc = SelectGenderViewController()
-//        vc.userBirth = passDate
+        let userEmail = insertEmailView.emailTextField.text ?? ""
+        UserDefaults.standard.set(userEmail, forKey: "userEmail")
         navigationController?.pushViewController(vc, animated: true)
     }
 

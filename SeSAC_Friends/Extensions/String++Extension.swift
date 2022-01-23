@@ -13,6 +13,7 @@ extension String {
         case email
         case code
         case nickname
+        case phoneNumber
     }
 
     enum Regex: String {
@@ -20,6 +21,7 @@ extension String {
         case email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z.]{2,64}"
         case code = "[0-9]{6}"
         case nickname = ".{1,10}"
+        case phoneNumber = "^01([0])([0-9]{3,4})([0-9]{4})$"
     }
 
     func substring(fromIndex: Int, count: Int) -> String {
@@ -42,6 +44,8 @@ extension String {
             regex = Regex.code.rawValue
         case .nickname:
             regex = Regex.nickname.rawValue
+        case .phoneNumber:
+            regex = Regex.phoneNumber.rawValue
         }
 
         return NSPredicate(format: format, regex).evaluate(with: self)

@@ -55,6 +55,9 @@ class AuthPhoneNumberViewController: UIViewController {
 
     @objc private func phoneNumberFieldChange(_ textfield: UITextField) {
         authPhoneNumberViewModel.phoneNumber.value = textfield.text ?? ""
+
+        let button = authPhoneNumberView.getSMSButton
+        checkValidation(textField: textfield, button: button, validityType: .phoneNumber)
     }
 
     @objc private func didTapRequestSMS() {

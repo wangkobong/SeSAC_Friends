@@ -17,7 +17,7 @@ class InsertBirthView: UIView {
         button.setTitleColor(UIColor.brandColor(.gray3), for: .normal)
         button.layer.cornerRadius = 8
         button.layer.masksToBounds = true
-//        button.isEnabled = false
+        button.isEnabled = false
         return button
      }()
 
@@ -70,6 +70,7 @@ class InsertBirthView: UIView {
         let picker = UIDatePicker()
 
         picker.datePickerMode = .date
+        picker.date = Calendar.current.date(byAdding: .year, value: -10, to: Date())!
         return picker
     }()
 

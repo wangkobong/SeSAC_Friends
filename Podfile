@@ -8,6 +8,8 @@ target 'SeSAC_Friends' do
   # Pods for SeSAC_Friends
   pod 'SwiftLint'
   pod 'Firebase/Auth'
+  pod 'Firebase/Messaging'
   pod 'RxSwift'
   pod 'RxCocoa'
+
 end
