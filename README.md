@@ -16,4 +16,7 @@
 - 이메일 입력 화면 / 성별 선택 화면 / 각 텍스트필드 유효성검사 추가
 
 [Service Level Project 7일차](./workLog/20220123.md)
-- 
+- 회원가입 기능, 회원탈퇴 기능 추가
+
+[Service Level Project 8일차](./workLog/20220124.md)
+- 온보딩뷰 추가, 회원가입 시 세부 고려사항 추가

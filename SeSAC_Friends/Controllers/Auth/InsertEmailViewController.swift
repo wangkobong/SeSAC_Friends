@@ -34,7 +34,7 @@ class InsertEmailViewController: UIViewController {
     @objc private func didTabNext() {
         let vc = SelectGenderViewController()
         let userEmail = insertEmailView.emailTextField.text ?? ""
-        UserDefaults.standard.set(userEmail, forKey: "userEmail")
+        UserDefaults.standard.set(userEmail, forKey: K.email)
         navigationController?.pushViewController(vc, animated: true)
     }
 

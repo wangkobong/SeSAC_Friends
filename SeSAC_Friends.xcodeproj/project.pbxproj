@@ -49,6 +49,10 @@
 		FE9F9510279D32A4002FFF3E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F950F279D32A4002FFF3E /* Constants.swift */; };
 		FE9F9512279D372F002FFF3E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F9511279D372F002FFF3E /* User.swift */; };
 		FE9F9516279D5B97002FFF3E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F9515279D5B97002FFF3E /* MainView.swift */; };
+		FE9F9547279DA35B002FFF3E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F9546279DA35B002FFF3E /* OnboardingViewController.swift */; };
+		FE9F9549279DA36E002FFF3E /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F9548279DA36E002FFF3E /* OnboardingSlide.swift */; };
+		FE9F954B279DA39F002FFF3E /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F954A279DA39F002FFF3E /* OnboardingCollectionViewCell.swift */; };
+		FE9F954F279DADA7002FFF3E /* UICollectionViewCell++Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9F954E279DADA7002FFF3E /* UICollectionViewCell++Extension.swift */; };
 		FEF232F5279698760082EBCC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FEF232F4279698760082EBCC /* .swiftlint.yml */; };
 		FEF232FC27969A3C0082EBCC /* AuthPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */; };
 /* End PBXBuildFile section */
@@ -99,6 +103,10 @@
 		FE9F950F279D32A4002FFF3E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FE9F9511279D372F002FFF3E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FE9F9515279D5B97002FFF3E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FE9F9546279DA35B002FFF3E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		FE9F9548279DA36E002FFF3E /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
+		FE9F954A279DA39F002FFF3E /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		FE9F954E279DADA7002FFF3E /* UICollectionViewCell++Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell++Extension.swift"; sourceTree = "<group>"; };
 		FEF232F4279698760082EBCC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPhoneNumberViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +166,7 @@
 				FE9F94FD279BFC4C002FFF3E /* Date++Extension.swift */,
 				FE9F94FF279BFE14002FFF3E /* String++Extension.swift */,
 				FE9F9507279C4F8F002FFF3E /* UIViewController++Extension.swift */,
+				FE9F954E279DADA7002FFF3E /* UICollectionViewCell++Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -218,6 +227,7 @@
 				FE9F950E279D158F002FFF3E /* SeSAC_Friends.entitlements */,
 				FE9F950D279D155A002FFF3E /* SeSAC_FriendsRelease.entitlements */,
 				FE52045C2797219F0039E63A /* Extensions */,
+				FE9F9545279DA33C002FFF3E /* Onboarding */,
 				FEF232FA2796996E0082EBCC /* Managers */,
 				FEF232F9279699620082EBCC /* Other */,
 				FEF232F8279699530082EBCC /* Models */,
@@ -260,6 +270,16 @@
 				FE9F9515279D5B97002FFF3E /* MainView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		FE9F9545279DA33C002FFF3E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				FE9F9546279DA35B002FFF3E /* OnboardingViewController.swift */,
+				FE9F9548279DA36E002FFF3E /* OnboardingSlide.swift */,
+				FE9F954A279DA39F002FFF3E /* OnboardingCollectionViewCell.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		FEF232F6279699370082EBCC /* ViewModels */ = {
@@ -464,12 +484,15 @@
 				FE9F9510279D32A4002FFF3E /* Constants.swift in Sources */,
 				FE52047E27985EFA0039E63A /* InsertNicknameViewController.swift in Sources */,
 				FE520456279721200039E63A /* InsertCodeViewController.swift in Sources */,
+				FE9F954F279DADA7002FFF3E /* UICollectionViewCell++Extension.swift in Sources */,
 				FE52048F27996E1E0039E63A /* InsertBirthViewController.swift in Sources */,
 				FE9F9516279D5B97002FFF3E /* MainView.swift in Sources */,
 				FE5204932799B7930039E63A /* TextField++Extension.swift in Sources */,
 				FE52046F2797F3610039E63A /* UIFont++Extension.swift in Sources */,
 				FE5204642797E8E20039E63A /* AuthPhoneNumberViewModel.swift in Sources */,
 				FE9F950A279C70D5002FFF3E /* test.swift in Sources */,
+				FE9F954B279DA39F002FFF3E /* OnboardingCollectionViewCell.swift in Sources */,
+				FE9F9549279DA36E002FFF3E /* OnboardingSlide.swift in Sources */,
 				FE520486279909360039E63A /* AuthManager.swift in Sources */,
 				FE520459279721610039E63A /* InsertEmailViewController.swift in Sources */,
 				FE52048D27996CDC0039E63A /* SignUpViewModel.swift in Sources */,
@@ -486,6 +509,7 @@
 				FE675993279552C300B1C699 /* AppDelegate.swift in Sources */,
 				FE9F9502279C32FC002FFF3E /* SelectGenderView.swift in Sources */,
 				FE675995279552C300B1C699 /* SceneDelegate.swift in Sources */,
+				FE9F9547279DA35B002FFF3E /* OnboardingViewController.swift in Sources */,
 				FE52047A279853C90039E63A /* UIColor++Extension.swift in Sources */,
 				FE9F9512279D372F002FFF3E /* User.swift in Sources */,
 			);

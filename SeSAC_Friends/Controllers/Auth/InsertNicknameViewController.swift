@@ -47,7 +47,7 @@ class InsertNicknameViewController: UIViewController {
     @objc private func didTapNext() {
         let vc = InsertBirthViewController()
         let nickname = insertNicknameView.nicknamerTextField.text ?? ""
-        UserDefaults.standard.set(nickname, forKey: "nickname")
+        UserDefaults.standard.set(nickname, forKey: K.nickname)
         navigationController?.pushViewController(vc, animated: true)
 
     }

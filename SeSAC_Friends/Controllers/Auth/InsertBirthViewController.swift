@@ -66,7 +66,7 @@ class InsertBirthViewController: UIViewController {
             self.view.makeToast("17세 이상만 가입 가능합니다.", duration: 1.5, position: .center, title: "연령제한")
             return
         }
-        UserDefaults.standard.set("\(dateOfBirth)", forKey: "dateOfBirth")
+        UserDefaults.standard.set("\(dateOfBirth)", forKey: K.birthDate)
         navigationController?.pushViewController(vc, animated: true)
     }
 

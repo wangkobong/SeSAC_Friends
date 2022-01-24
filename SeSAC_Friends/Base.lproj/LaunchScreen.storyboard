@@ -16,29 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ufs-bw-eFt">
-                                <rect key="frame" x="74" y="226" width="163" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROZ-bn-frn">
-                                        <rect key="frame" x="48" y="8" width="67" height="73"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="man"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="남자" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBf-YK-thJ">
-                                        <rect key="frame" x="66" y="89" width="30" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenIMG" translatesAutoresizingMaskIntoConstraints="NO" id="dfP-V9-Wnt">
+                                <rect key="frame" x="78" y="260" width="258" height="265"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="265" id="0Od-r1-Rxw"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenText" translatesAutoresizingMaskIntoConstraints="NO" id="4R0-wv-N8X">
+                                <rect key="frame" x="41" y="542" width="331" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="f9Y-Ev-C5E"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4R0-wv-N8X" firstAttribute="top" secondItem="dfP-V9-Wnt" secondAttribute="bottom" constant="17" id="1yi-88-IzK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4R0-wv-N8X" secondAttribute="trailing" constant="42" id="Gfu-q6-GOj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dfP-V9-Wnt" secondAttribute="trailing" constant="78" id="GnQ-FW-pFz"/>
+                            <constraint firstItem="dfP-V9-Wnt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="216" id="ITX-hY-djZ"/>
+                            <constraint firstItem="dfP-V9-Wnt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="78" id="Y1a-q3-dcp"/>
+                            <constraint firstItem="4R0-wv-N8X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="41" id="lnh-3k-LCe"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -47,7 +47,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="man" width="64" height="64"/>
+        <image name="launchScreenIMG" width="219" height="264"/>
+        <image name="launchScreenText" width="290" height="33"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -18,13 +18,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-//        let vc = UINavigationController(rootViewController: AuthPhoneNumberViewController())
+//        let vc = UINavigationController(rootViewController: OnboardingViewController())
 //        window?.rootViewController = vc
 //        window?.makeKeyAndVisible()
         let isSignedUp = UserDefaults.standard.bool(forKey: "isSignedUp")
         print("isSignedUp: \(isSignedUp)")
         if Auth.auth().currentUser == nil && !isSignedUp { // 문자인증X && 회원가입X
-            let vc = UINavigationController(rootViewController: AuthPhoneNumberViewController())
+            let vc = UINavigationController(rootViewController: OnboardingViewController())
             window?.rootViewController = vc
             window?.makeKeyAndVisible()
         } else if Auth.auth().currentUser != nil && !isSignedUp { // 문자인증O && 회원가입X

@@ -47,7 +47,7 @@ class InsertCodeViewController: UIViewController {
                         return
                     }
                     print(self, token)
-                    UserDefaults.standard.set(token, forKey: "authVerificationID")
+                    UserDefaults.standard.set(token, forKey: K.idToken)
                     AuthManager.checkSignUp(token: token) { success, statusCode in
                         if success && statusCode == 200 {
                             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }

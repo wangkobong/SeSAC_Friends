@@ -11,7 +11,7 @@ class SelectGenderViewController: UIViewController {
 
     private let selectGenderView = SelectGenderView()
     private let signUpViewModel = SignUpViewModel()
-    var genderNumber = 3
+    var genderNumber = -1
 
     override func loadView() {
         self.view = selectGenderView
@@ -32,7 +32,7 @@ class SelectGenderViewController: UIViewController {
 
     @objc private func didTapSignUp() {
         print(#function)
-        UserDefaults.standard.set(genderNumber, forKey: "gender")
+        UserDefaults.standard.set(genderNumber, forKey: K.gender)
         signUpViewModel.signUp { [weak self] success, code in
 //            guard let code = code else {
 //                return
@@ -56,7 +56,7 @@ class SelectGenderViewController: UIViewController {
                 case 401:
                     print("401")
                 default:
-                    print("")
+                    print("nothing")
                 }
             } else {
 
@@ -75,7 +75,7 @@ class SelectGenderViewController: UIViewController {
             selectGenderView.femaleButton.backgroundColor = UIColor.brandColor(.whiteGreen)
         }
 
-        if genderNumber != 3 {
+        if genderNumber != -1 {
             selectGenderView.nextButton4.backgroundColor = .brandColor(.green)
         } else {
             selectGenderView.nextButton4.backgroundColor = .brandColor(.gray6)

@@ -33,18 +33,19 @@ class AuthManager {
     }
 
     static func signUp(completion: @escaping (Bool, Int?) -> Void) {
-        let idToken = UserDefaults.standard.string(forKey: "authVerificationID") ?? ""
-        let phoneNumber = UserDefaults.standard.string(forKey: "phoneNumber") ?? ""
-        let nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
-        let birthDate = UserDefaults.standard.string(forKey: "dateOfBirth") ?? ""
-        let gender = UserDefaults.standard.integer(forKey: "gender")
-        let email = UserDefaults.standard.string(forKey: "userEmail") ?? ""
-        let FCMtoken = UserDefaults.standard.string(forKey: "FCMToken") ?? ""
+        let idToken = UserDefaults.standard.string(forKey: K.idToken) ?? ""
+        let phoneNumber = UserDefaults.standard.string(forKey: K.phoneNumber) ?? ""
+        let nickname = UserDefaults.standard.string(forKey: K.nickname) ?? ""
+        let birthDate = UserDefaults.standard.string(forKey: K.birthDate) ?? ""
+        let gender = UserDefaults.standard.integer(forKey: K.gender)
+        let email = UserDefaults.standard.string(forKey: K.email) ?? ""
+        let FCMtoken = UserDefaults.standard.string(forKey: K.FCMtoken) ?? ""
         print(idToken)
         print("FCMtoken \(FCMtoken)")
         let url = K.makeEndPoint("user")
         let header: HTTPHeaders = [
-            K.idToken: idToken
+            "idtoken": idToken,
+            "Content-Type": "application/x-www-form-urlencoded"
         ]
         let body: Parameters = [
             "phoneNumber": phoneNumber,
@@ -72,10 +73,12 @@ class AuthManager {
     }
 
     static func withdraw(completion: @escaping (Bool, Int?) -> Void) {
-        let idToken = UserDefaults.standard.string(forKey: "authVerificationID") ?? ""
+        let idToken = UserDefaults.standard.string(forKey: K.idToken) ?? ""
+        print(K.idToken)
+        print(idToken)
         let url = K.makeEndPoint("user/withdraw")
         let header: HTTPHeaders = [
-            K.idToken: idToken
+            "idtoken": idToken
         ]
 
         AF.request(url, method: .post, headers: header)
