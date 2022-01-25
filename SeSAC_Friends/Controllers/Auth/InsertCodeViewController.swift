@@ -12,6 +12,10 @@ class InsertCodeViewController: UIViewController {
 
     private let insertCodeView = InsertCodeView()
     private let insertCodeViewModel = InsertCodeViewModel()
+    private let authPhoneNumberViewModel = AuthPhoneNumberViewModel()
+
+    var timerRemaining: Int = 60
+    var timer: Timer!
 
     deinit {
         print("\(self) deinit")
@@ -36,6 +40,12 @@ class InsertCodeViewController: UIViewController {
         insertCodeView.authButton.addTarget(self, action: #selector(didTapSend), for: .touchUpInside)
         view.makeToast("인증번호를 보냈습니다")
 
+        insertCodeView.resendButton.addTarget(self, action: #selector(didTabResend), for: .touchUpInside)
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setTimer()
     }
 
     func sendSMSCode() {
@@ -69,15 +79,48 @@ class InsertCodeViewController: UIViewController {
         }
     }
 
+    func setTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
+    }
+
+    func restartTimer() {
+        timerRemaining = 60
+        insertCodeView.timeLabel.text = "\(timerRemaining)초"
+    }
+
     @objc private func didTapSend() {
         sendSMSCode()
         print(#function)
+    }
+
+    @objc private func didTabResend() {
+        print("didTabResend")
+        restartTimer()
+        step()
+        authPhoneNumberViewModel.startAuth { [weak self] success, _ in
+            if success {
+                DispatchQueue.main.async {
+                    self?.view.makeToast("문자메세지를 확인해주세요")
+                }
+            } else {
+                self?.view.makeToast("인증실패")
+            }
+        }
     }
 
     @objc private func smsCodeFieldChange(_ textfield: UITextField) {
         insertCodeViewModel.smsCode.value = textfield.text ?? ""
         let authButton = insertCodeView.authButton
         checkValidation(textField: textfield, button: authButton, validityType: .code)
+    }
+
+    @objc private func step() {
+        if timerRemaining > 0 {
+            timerRemaining -= 1
+        } else {
+            timer.invalidate()
+        }
+        insertCodeView.timeLabel.text = "\(timerRemaining)초"
     }
 
 //    @objc private func didTapRequestSMS() {

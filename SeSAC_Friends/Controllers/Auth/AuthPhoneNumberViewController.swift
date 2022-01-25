@@ -40,8 +40,9 @@ class AuthPhoneNumberViewController: UIViewController {
     }
 
     func requestSMS() {
-        authPhoneNumberViewModel.startAuth { [weak self] success in
+        authPhoneNumberViewModel.startAuth { [weak self] success, phoneNumber in
             if success {
+                UserDefaults.standard.set(phoneNumber, forKey: K.phoneNumber)
                 DispatchQueue.main.async {
                     let vc = InsertCodeViewController()
                     self?.navigationController?.pushViewController(vc, animated: true)

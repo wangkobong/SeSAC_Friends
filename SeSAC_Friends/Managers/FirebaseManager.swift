@@ -17,7 +17,20 @@ class FirebaseManager {
     public func startAuth(phoneNumber: String, completion: @escaping (Bool) -> Void) {
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { [weak self] verificationId, error in
             guard let verificationId = verificationId, error == nil else {
-                print("error:\(error)")
+                print("error:\(error!)")
+                return
+            }
+            self?.verificationId = verificationId
+
+            completion(true)
+        }
+    }
+
+    public func reRequestAuth(completion: @escaping (Bool) -> Void) {
+        let phoneNumber = UserDefaults.standard.string(forKey: K.phoneNumber) ?? ""
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { [weak self] verificationId, error in
+            guard let verificationId = verificationId, error == nil else {
+                print("error:\(error!)")
                 return
             }
             self?.verificationId = verificationId

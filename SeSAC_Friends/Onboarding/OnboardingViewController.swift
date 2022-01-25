@@ -83,7 +83,7 @@ class OnboardingViewController: UIViewController {
         startButton.snp.makeConstraints {
             $0.leading.equalTo(view).offset(16)
             $0.trailing.equalTo(view).offset(-16)
-            $0.bottom.equalTo(view).offset(-16)
+            $0.bottom.equalTo(view).offset(-50)
             $0.height.equalTo(48)
         }
 

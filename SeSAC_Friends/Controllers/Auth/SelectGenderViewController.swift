@@ -43,12 +43,53 @@ class SelectGenderViewController: UIViewController {
                     UserDefaults.standard.set(true, forKey: "isSignedUp")
                     DispatchQueue.main.async {
                         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-                        let vc = UITabBarController()
-                        windowScene.windows.first?.rootViewController = vc
+                        let tabVarVC = UITabBarController()
+                        let vc1 = UINavigationController(rootViewController: HomeViewController())
+                        let vc2 = UINavigationController(rootViewController: ShopViewController())
+                        let vc3 = UINavigationController(rootViewController: FriendViewController())
+                        let vc4 = UINavigationController(rootViewController: MyInfoViewController())
+                        tabVarVC.setViewControllers([vc1, vc2, vc3, vc4], animated: false)
+                        vc1.title = "홈"
+                        vc2.title = "새싹샵"
+                        vc3.title = "새싹친구"
+                        vc4.title = "내정보"
+                        guard let items = tabVarVC.tabBar.items else {
+                            return
+                        }
+                        let images = ["homeGray", "giftGray", "sesacGray", "homeGray"]
+
+                        for x in 0..<items.count {
+                            items[x].image = UIImage(named: images[x])
+                        }
+                        windowScene.windows.first?.rootViewController = tabVarVC
                         windowScene.windows.first?.makeKeyAndVisible()
                     }
                 case 201:
+                    UserDefaults.standard.set(true, forKey: "isSignedUp")
                     print("이미 가입한 유저")
+                    DispatchQueue.main.async {
+                        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+                        let tabVarVC = UITabBarController()
+                        let vc1 = UINavigationController(rootViewController: HomeViewController())
+                        let vc2 = UINavigationController(rootViewController: ShopViewController())
+                        let vc3 = UINavigationController(rootViewController: FriendViewController())
+                        let vc4 = UINavigationController(rootViewController: MyInfoViewController())
+                        tabVarVC.setViewControllers([vc1, vc2, vc3, vc4], animated: false)
+                        vc1.title = "홈"
+                        vc2.title = "새싹샵"
+                        vc3.title = "새싹친구"
+                        vc4.title = "내정보"
+                        guard let items = tabVarVC.tabBar.items else {
+                            return
+                        }
+                        let images = ["homeGray", "giftGray", "sesacGray", "homeGray"]
+
+                        for x in 0..<items.count {
+                            items[x].image = UIImage(named: images[x])
+                        }
+                        windowScene.windows.first?.rootViewController = tabVarVC
+                        windowScene.windows.first?.makeKeyAndVisible()
+                    }
                 case 202:
                     let vc = InsertNicknameViewController()
                     vc.isBack = true

@@ -28,7 +28,6 @@ class InsertCodeView: UIView {
         button.setTitleColor(UIColor(named: "BrandWhite"), for: .normal)
         button.layer.cornerRadius = 8
         button.layer.masksToBounds = true
-        button.isEnabled = false
         return button
     }()
 
@@ -68,7 +67,7 @@ class InsertCodeView: UIView {
         let label = UILabel()
         label.font = UIFont.NotoSans(.regular, size: 16)
         label.textColor = UIColor.brandColor(.gray7)
-        label.text = "(최대 소모 20초)"
+        label.text = "(최대 소모 60초)"
         label.textAlignment = .center
         return label
     }()
@@ -77,7 +76,7 @@ class InsertCodeView: UIView {
         let label = UILabel()
         label.font = UIFont.NotoSans(.medium, size: 14)
         label.textColor = UIColor.brandColor(.green)
-        label.text = "05:00"
+        label.text = "60초"
         label.textAlignment = .center
         return label
     }()
@@ -113,7 +112,7 @@ class InsertCodeView: UIView {
             $0.centerX.equalToSuperview()
             $0.leading.equalTo(self).offset(16)
             $0.trailing.equalTo(self).offset(-16)
-            $0.bottom.equalTo(self).offset(-350)
+            $0.bottom.equalToSuperview().multipliedBy(0.65)
             $0.height.equalTo(48)
         }
 

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		F9FA4AF40C7C88234B27CDE7 /* Pods_SeSAC_Friends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9DAFE1E8B256EA39D6DA9D3 /* Pods_SeSAC_Friends.framework */; };
+		FE4A1B4A279FCC7700BEA8C9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4A1B49279FCC7700BEA8C9 /* HomeViewController.swift */; };
+		FE4A1B4C279FCD0C00BEA8C9 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4A1B4B279FCD0C00BEA8C9 /* ShopViewController.swift */; };
+		FE4A1B4E279FCD3900BEA8C9 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4A1B4D279FCD3900BEA8C9 /* FriendViewController.swift */; };
+		FE4A1B50279FCD6300BEA8C9 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4A1B4F279FCD6300BEA8C9 /* MyInfoViewController.swift */; };
+		FE4A1B52279FD75B00BEA8C9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4A1B51279FD75B00BEA8C9 /* HomeView.swift */; };
 		FE520456279721200039E63A /* InsertCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE520455279721200039E63A /* InsertCodeViewController.swift */; };
 		FE520459279721610039E63A /* InsertEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE520458279721610039E63A /* InsertEmailViewController.swift */; };
 		FE52045B279721860039E63A /* SelectGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE52045A279721860039E63A /* SelectGenderViewController.swift */; };
@@ -61,6 +66,11 @@
 		053E8859A5D0AB3278236F8A /* Pods-SeSAC_Friends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSAC_Friends.release.xcconfig"; path = "Target Support Files/Pods-SeSAC_Friends/Pods-SeSAC_Friends.release.xcconfig"; sourceTree = "<group>"; };
 		B9DAFE1E8B256EA39D6DA9D3 /* Pods_SeSAC_Friends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeSAC_Friends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6DB90AD6C85878ECF3B211B /* Pods-SeSAC_Friends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSAC_Friends.debug.xcconfig"; path = "Target Support Files/Pods-SeSAC_Friends/Pods-SeSAC_Friends.debug.xcconfig"; sourceTree = "<group>"; };
+		FE4A1B49279FCC7700BEA8C9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FE4A1B4B279FCD0C00BEA8C9 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		FE4A1B4D279FCD3900BEA8C9 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		FE4A1B4F279FCD6300BEA8C9 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
+		FE4A1B51279FD75B00BEA8C9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FE520455279721200039E63A /* InsertCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertCodeViewController.swift; sourceTree = "<group>"; };
 		FE520458279721610039E63A /* InsertEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertEmailViewController.swift; sourceTree = "<group>"; };
 		FE52045A279721860039E63A /* SelectGenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGenderViewController.swift; sourceTree = "<group>"; };
@@ -260,6 +270,10 @@
 			isa = PBXGroup;
 			children = (
 				FE675996279552C300B1C699 /* MainViewController.swift */,
+				FE4A1B49279FCC7700BEA8C9 /* HomeViewController.swift */,
+				FE4A1B4B279FCD0C00BEA8C9 /* ShopViewController.swift */,
+				FE4A1B4D279FCD3900BEA8C9 /* FriendViewController.swift */,
+				FE4A1B4F279FCD6300BEA8C9 /* MyInfoViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -268,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				FE9F9515279D5B97002FFF3E /* MainView.swift */,
+				FE4A1B51279FD75B00BEA8C9 /* HomeView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -482,6 +497,7 @@
 				FEF232FC27969A3C0082EBCC /* AuthPhoneNumberViewController.swift in Sources */,
 				FE52046D2797EB9C0039E63A /* AuthPhoneView.swift in Sources */,
 				FE9F9510279D32A4002FFF3E /* Constants.swift in Sources */,
+				FE4A1B4C279FCD0C00BEA8C9 /* ShopViewController.swift in Sources */,
 				FE52047E27985EFA0039E63A /* InsertNicknameViewController.swift in Sources */,
 				FE520456279721200039E63A /* InsertCodeViewController.swift in Sources */,
 				FE9F954F279DADA7002FFF3E /* UICollectionViewCell++Extension.swift in Sources */,
@@ -489,13 +505,16 @@
 				FE9F9516279D5B97002FFF3E /* MainView.swift in Sources */,
 				FE5204932799B7930039E63A /* TextField++Extension.swift in Sources */,
 				FE52046F2797F3610039E63A /* UIFont++Extension.swift in Sources */,
+				FE4A1B52279FD75B00BEA8C9 /* HomeView.swift in Sources */,
 				FE5204642797E8E20039E63A /* AuthPhoneNumberViewModel.swift in Sources */,
+				FE4A1B4E279FCD3900BEA8C9 /* FriendViewController.swift in Sources */,
 				FE9F950A279C70D5002FFF3E /* test.swift in Sources */,
 				FE9F954B279DA39F002FFF3E /* OnboardingCollectionViewCell.swift in Sources */,
 				FE9F9549279DA36E002FFF3E /* OnboardingSlide.swift in Sources */,
 				FE520486279909360039E63A /* AuthManager.swift in Sources */,
 				FE520459279721610039E63A /* InsertEmailViewController.swift in Sources */,
 				FE52048D27996CDC0039E63A /* SignUpViewModel.swift in Sources */,
+				FE4A1B50279FCD6300BEA8C9 /* MyInfoViewController.swift in Sources */,
 				FE9F950C279D112C002FFF3E /* oldTest.swift in Sources */,
 				FE52045B279721860039E63A /* SelectGenderViewController.swift in Sources */,
 				FE9F9500279BFE14002FFF3E /* String++Extension.swift in Sources */,
@@ -505,6 +524,7 @@
 				FE52049127996E330039E63A /* InsertBirthView.swift in Sources */,
 				FE52047C27985EAE0039E63A /* InsertEmailView.swift in Sources */,
 				FE52047827984FD20039E63A /* InsertCodeView.swift in Sources */,
+				FE4A1B4A279FCC7700BEA8C9 /* HomeViewController.swift in Sources */,
 				FE675997279552C300B1C699 /* MainViewController.swift in Sources */,
 				FE675993279552C300B1C699 /* AppDelegate.swift in Sources */,
 				FE9F9502279C32FC002FFF3E /* SelectGenderView.swift in Sources */,
