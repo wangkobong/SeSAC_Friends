@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  MyInfoView.swift
 //  SeSAC_Friends
 //
 //  Created by sungyeon kim on 2022/01/25.
@@ -7,14 +7,14 @@
 
 import UIKit
 import SnapKit
-import MapKit
 
-class HomeView: UIView {
-    let mapView: MKMapView = {
-       let map = MKMapView()
-        map.overrideUserInterfaceStyle = .light
-        map.translatesAutoresizingMaskIntoConstraints = false
-        return map
+class MyInfoView: UIView {
+
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(MyInfoCell.self, forCellReuseIdentifier: MyInfoCell.reuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        return tableView
     }()
 
     override init(frame: CGRect) {
@@ -29,14 +29,13 @@ class HomeView: UIView {
 
     private func setupView() {
 
-        [mapView].forEach {
+        [tableView].forEach {
             addSubview($0)
         }
     }
 
     private func setupConstraints() {
-
-        mapView.snp.makeConstraints {
+        tableView.snp.makeConstraints {
             $0.edges.equalTo(self.safeAreaLayoutGuide)
         }
     }
