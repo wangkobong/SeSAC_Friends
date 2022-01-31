@@ -11,5 +11,5 @@ target 'SeSAC_Friends' do
   pod 'Firebase/Messaging'
   pod 'RxSwift'
   pod 'RxCocoa'
-
+  pod 'RangeSeekSlider'
 end

@@ -58,6 +58,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
+        FirebaseManager.shared.checkToken { token, error in
+            guard let token = token else {
+                print(error ?? "")
+                return
+            }
+
+        }
+
         return true
     }
 
