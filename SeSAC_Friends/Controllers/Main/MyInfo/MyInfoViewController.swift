@@ -10,9 +10,12 @@ import UIKit
 class MyInfoViewController: UIViewController {
 
     private let myInfoView = MyInfoView()
+    private let putCell = PutCell()
 
     let images = ["notice", "faq", "qna", "setting_alarm", "permit"]
     let cellTexts = ["공지사항", "자주 묻는 질문", "1:1 문의", "알림 설정", "이용 약관"]
+
+    var userInfo: User?
 
     override func loadView() {
         self.view = myInfoView
@@ -25,6 +28,27 @@ class MyInfoViewController: UIViewController {
         title = "내정보"
         myInfoView.tableView.delegate = self
         myInfoView.tableView.dataSource = self
+
+        AuthManager.getUser { user, statusCode in
+            print("로그인 상태코드: \(statusCode)")
+            guard let user = user else {
+                switch statusCode {
+                case 201:
+                    print("미가입유저, 회원가입으로 이동")
+                case 401:
+                    print("Firebase Token Error")
+                case 500:
+                    print("Server Error")
+                case 501:
+                    print("Client Error")
+                default:
+                    print("default")
+                }
+                return
+            }
+            self.userInfo = user
+
+        }
     }
 
 }
@@ -72,6 +96,8 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource {
             DispatchQueue.main.async {
                 let vc = PutMyInfoViewController()
                 vc.title = "정보 관리"
+                vc.userInfo = self.userInfo
+
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         } else {

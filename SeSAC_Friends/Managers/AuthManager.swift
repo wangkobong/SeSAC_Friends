@@ -82,7 +82,7 @@ class AuthManager {
         ]
 
         AF.request(url, method: .post, headers: header)
-            .validate(statusCode: 200...500)
+            .validate(statusCode: 200...501)
             .responseString { response in
                 let code = response.response?.statusCode
                 switch response.result {
@@ -93,6 +93,30 @@ class AuthManager {
                 case .failure(let error):
                     print(error)
                     completion(false, code)
+                }
+            }
+    }
+
+    static func getUser(completion: @escaping (User?, Int?) -> Void) {
+        let idToken = UserDefaults.standard.string(forKey: K.idToken) ?? ""
+        let url = K.makeEndPoint("user")
+        let header: HTTPHeaders = [
+            "idtoken": idToken
+        ]
+
+        AF.request(url, method: .get, headers: header)
+            .validate(statusCode: 200...501)
+            .responseDecodable(of: User.self) { response in
+                let code = response.response?.statusCode
+                let user = response.value
+                switch response.result {
+                case .success:
+                    print(response.value)
+                    print(code)
+                    completion(user, code)
+                case .failure(let error):
+                    print(error)
+                    completion(nil, code)
                 }
             }
     }

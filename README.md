@@ -29,3 +29,6 @@
 
 [Service Level Project 11일차](./workLog/20220127.md)
 - 
+
+[Service Level Project 14일차](./workLog/20220131.md)
+- 정보관리 뷰 만들었지만 100% 구현못함, 정보관리 페이지에서 탈퇴기능 추가

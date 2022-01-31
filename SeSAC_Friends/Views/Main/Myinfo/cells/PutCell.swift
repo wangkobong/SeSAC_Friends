@@ -12,6 +12,12 @@ import RangeSeekSlider
 
 class PutCell: UITableViewCell {
 
+    var gender = 0
+    var isOn = 0
+    var ageMin = 0
+    var ageMax = 0
+    var user: User?
+
     let genderLabel = UILabel().then {
         $0.text = "내 성별"
         $0.font = UIFont.NotoSans(.regular, size: 14)
@@ -19,7 +25,6 @@ class PutCell: UITableViewCell {
 
     let femaleButton = UIButton().then {
         $0.setTitle("여자", for: .normal)
-        $0.backgroundColor = UIColor.brandColor(.green)
         $0.titleLabel?.font = UIFont.NotoSans(.regular, size: 14)
         $0.layer.cornerRadius = 4
         $0.layer.masksToBounds = true
@@ -28,8 +33,6 @@ class PutCell: UITableViewCell {
     let maleButton = UIButton().then {
         $0.setTitle("남자", for: .normal)
         $0.titleLabel?.font = UIFont.NotoSans(.regular, size: 14)
-        $0.setTitleColor(UIColor.brandColor(.black), for: .normal)
-        $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 4
         $0.layer.masksToBounds = true
 
@@ -70,8 +73,8 @@ class PutCell: UITableViewCell {
     }
 
     let ageSlider = RangeSeekSlider().then {
-        $0.minValue = 18
-        $0.maxValue = 65
+//        $0.minValue = 18
+//        $0.maxValue = 65
         $0.handleColor = UIColor.brandColor(.green)
         $0.handleBorderColor = UIColor.brandColor(.white)
         $0.colorBetweenHandles = UIColor.brandColor(.green)
@@ -101,11 +104,66 @@ class PutCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func load(user: User) {
+        print(#function)
+        self.user = user
+        guard let currentUser = self.user else { return }
+        self.isOn = currentUser.searchable
+        self.gender = currentUser.gender
+        self.ageMax = currentUser.ageMax
+        self.ageMin = currentUser.ageMin
+        setGender()
+        setSwitch()
+        setAge()
+    }
+
+    func setGender() {
+        if gender == -1 {
+            [femaleButton, maleButton].forEach {
+                $0.backgroundColor = .systemBackground
+                $0.setTitleColor(UIColor.brandColor(.black), for: .normal)
+            }
+        } else if gender == 0 {
+            femaleButton.backgroundColor = UIColor.brandColor(.green)
+            femaleButton.setTitleColor(UIColor.brandColor(.white), for: .normal)
+            maleButton.backgroundColor = .systemBackground
+            maleButton.setTitleColor(UIColor.brandColor(.black), for: .normal)
+            maleButton.layer.borderWidth = 1
+            maleButton.layer.borderColor = UIColor.brandColor(.gray3).cgColor
+        } else {
+            femaleButton.backgroundColor = .systemBackground
+            femaleButton.setTitleColor(UIColor.brandColor(.black), for: .normal)
+            femaleButton.layer.borderWidth = 1
+            femaleButton.layer.borderColor = UIColor.brandColor(.gray3).cgColor
+            maleButton.backgroundColor = UIColor.brandColor(.green)
+            maleButton.setTitleColor(UIColor.brandColor(.white), for: .normal)
+        }
+    }
+
+    func setSwitch() {
+        if isOn == 1 {
+            permitSwitch.isOn = true
+        } else {
+            permitSwitch.isOn = false
+        }
+    }
+
+    func setAge() {
+        ageLabel.text = "\(ageMin) - \(ageMax)"
+        ageSlider.minValue = CGFloat(ageMin )
+        ageSlider.maxValue = CGFloat(ageMax )
+    }
+
+    func test() {
+        print(#function)
+    }
+
     internal func setupView() {
 
         [genderLabel, myHobbyLabel, isPermittedLabel, partnerAge, maleButton, femaleButton, dividingLine, hobbyTextField, permitSwitch, ageLabel, ageSlider, withdrawButton].forEach {
             contentView.addSubview($0)
         }
+
     }
 
     internal func setupConstraints() {

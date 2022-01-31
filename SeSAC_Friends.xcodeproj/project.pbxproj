@@ -76,6 +76,7 @@
 		FED55D5327A7D24C00FFF31D /* PutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED55D5227A7D24C00FFF31D /* PutCell.swift */; };
 		FED55D5727A80B4500FFF31D /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED55D5627A80B4500FFF31D /* WithdrawViewController.swift */; };
 		FED55D5927A80B8200FFF31D /* WithdrawAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED55D5827A80B8200FFF31D /* WithdrawAlertView.swift */; };
+		FED55D5C27A81E9400FFF31D /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED55D5B27A81E9400FFF31D /* MyInfoViewModel.swift */; };
 		FEF232F5279698760082EBCC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FEF232F4279698760082EBCC /* .swiftlint.yml */; };
 		FEF232FC27969A3C0082EBCC /* AuthPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */; };
 /* End PBXBuildFile section */
@@ -152,6 +153,7 @@
 		FED55D5227A7D24C00FFF31D /* PutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutCell.swift; sourceTree = "<group>"; };
 		FED55D5627A80B4500FFF31D /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
 		FED55D5827A80B8200FFF31D /* WithdrawAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawAlertView.swift; sourceTree = "<group>"; };
+		FED55D5B27A81E9400FFF31D /* MyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewModel.swift; sourceTree = "<group>"; };
 		FEF232F4279698760082EBCC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPhoneNumberViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -414,9 +416,18 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		FED55D5A27A81E8600FFF31D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FED55D5B27A81E9400FFF31D /* MyInfoViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		FEF232F6279699370082EBCC /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FED55D5A27A81E8600FFF31D /* Main */,
 				FE5204622797E8D00039E63A /* Auth */,
 			);
 			path = ViewModels;
@@ -623,6 +634,7 @@
 				FEC639E127A28BF500568A80 /* CollectionReusableView.swift in Sources */,
 				FE52046D2797EB9C0039E63A /* AuthPhoneView.swift in Sources */,
 				FE4A1B7C27A1937400BEA8C9 /* ReviewCollectionViewCell.swift in Sources */,
+				FED55D5C27A81E9400FFF31D /* MyInfoViewModel.swift in Sources */,
 				FE9F9510279D32A4002FFF3E /* Constants.swift in Sources */,
 				FE4A1B6A27A1680000BEA8C9 /* ViewController.swift in Sources */,
 				FE4A1B4C279FCD0C00BEA8C9 /* ShopViewController.swift in Sources */,

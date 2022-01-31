@@ -11,9 +11,11 @@ class PutMyInfoViewController: UIViewController {
 
     private let infoManageView = InfoManageView()
     private let reviewCollectionViewCell = ReviewCollectionViewCell()
-    private let putCell = PutCell()
+    let putCell = PutCell()
+    private let myInfoViewModel = MyInfoViewModel()
 
     var buttons = [Buttons]()
+    var userInfo: User?
 
     override func loadView() {
         self.view = infoManageView
@@ -21,8 +23,8 @@ class PutMyInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.view.alpha = 1
         print(UserDefaults.standard.string(forKey: K.idToken))
+        print("userInfo: \(userInfo)")
         view.backgroundColor = .systemBackground
         infoManageView.tableView.delegate = self
         infoManageView.tableView.dataSource = self
@@ -67,6 +69,7 @@ extension PutMyInfoViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: PutCell.reuseIdentifier, for: indexPath) as! PutCell
             cell.withdrawButton.addTarget(self, action: #selector(didTabWithdrawal), for: .touchUpInside)
+            cell.load(user: self.userInfo!)
             return cell
         }
     }
