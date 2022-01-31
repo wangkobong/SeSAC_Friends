@@ -74,6 +74,8 @@
 		FEC639E127A28BF500568A80 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC639E027A28BF500568A80 /* CollectionReusableView.swift */; };
 		FED37C3927A2734800982682 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED37C3827A2734800982682 /* HeaderCell.swift */; };
 		FED55D5327A7D24C00FFF31D /* PutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED55D5227A7D24C00FFF31D /* PutCell.swift */; };
+		FED55D5727A80B4500FFF31D /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED55D5627A80B4500FFF31D /* WithdrawViewController.swift */; };
+		FED55D5927A80B8200FFF31D /* WithdrawAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED55D5827A80B8200FFF31D /* WithdrawAlertView.swift */; };
 		FEF232F5279698760082EBCC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FEF232F4279698760082EBCC /* .swiftlint.yml */; };
 		FEF232FC27969A3C0082EBCC /* AuthPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */; };
 /* End PBXBuildFile section */
@@ -148,6 +150,8 @@
 		FEC639E027A28BF500568A80 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		FED37C3827A2734800982682 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		FED55D5227A7D24C00FFF31D /* PutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutCell.swift; sourceTree = "<group>"; };
+		FED55D5627A80B4500FFF31D /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
+		FED55D5827A80B8200FFF31D /* WithdrawAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawAlertView.swift; sourceTree = "<group>"; };
 		FEF232F4279698760082EBCC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPhoneNumberViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,6 +202,7 @@
 			children = (
 				FE4A1B4F279FCD6300BEA8C9 /* MyInfoViewController.swift */,
 				FE4A1B5B27A1143A00BEA8C9 /* PutMyInfoViewController.swift */,
+				FED55D5627A80B4500FFF31D /* WithdrawViewController.swift */,
 			);
 			path = MyInfo;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				FE4A1B53279FE6C600BEA8C9 /* MyInfoView.swift */,
 				FE4A1B7527A18D3A00BEA8C9 /* InfoManageView.swift */,
 				FEC639E027A28BF500568A80 /* CollectionReusableView.swift */,
+				FED55D5827A80B8200FFF31D /* WithdrawAlertView.swift */,
 			);
 			path = Myinfo;
 			sourceTree = "<group>";
@@ -621,12 +627,14 @@
 				FE4A1B6A27A1680000BEA8C9 /* ViewController.swift in Sources */,
 				FE4A1B4C279FCD0C00BEA8C9 /* ShopViewController.swift in Sources */,
 				FE4A1B6F27A17AEF00BEA8C9 /* CollectionTableViewCell.swift in Sources */,
+				FED55D5727A80B4500FFF31D /* WithdrawViewController.swift in Sources */,
 				FE4A1B5C27A1143A00BEA8C9 /* PutMyInfoViewController.swift in Sources */,
 				FE52047E27985EFA0039E63A /* InsertNicknameViewController.swift in Sources */,
 				FE520456279721200039E63A /* InsertCodeViewController.swift in Sources */,
 				FE9F954F279DADA7002FFF3E /* UICollectionViewCell++Extension.swift in Sources */,
 				FED55D5327A7D24C00FFF31D /* PutCell.swift in Sources */,
 				FE52048F27996E1E0039E63A /* InsertBirthViewController.swift in Sources */,
+				FED55D5927A80B8200FFF31D /* WithdrawAlertView.swift in Sources */,
 				FE9F9516279D5B97002FFF3E /* MainView.swift in Sources */,
 				FE5204932799B7930039E63A /* TextField++Extension.swift in Sources */,
 				FE52046F2797F3610039E63A /* UIFont++Extension.swift in Sources */,

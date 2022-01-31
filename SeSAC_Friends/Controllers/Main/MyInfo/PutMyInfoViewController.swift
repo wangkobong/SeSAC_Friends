@@ -11,6 +11,7 @@ class PutMyInfoViewController: UIViewController {
 
     private let infoManageView = InfoManageView()
     private let reviewCollectionViewCell = ReviewCollectionViewCell()
+    private let putCell = PutCell()
 
     var buttons = [Buttons]()
 
@@ -20,6 +21,7 @@ class PutMyInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.view.alpha = 1
         print(UserDefaults.standard.string(forKey: K.idToken))
         view.backgroundColor = .systemBackground
         infoManageView.tableView.delegate = self
@@ -32,13 +34,15 @@ class PutMyInfoViewController: UIViewController {
         buttons.append(Buttons(buttonTitle: "능숙한 취미 실력", bgColor: .brandColor(.green)))
         buttons.append(Buttons(buttonTitle: "유익한 시간", bgColor: .brandColor(.green)))
 
-        reviewCollectionViewCell.button1.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-
     }
 
-    @objc func didTapButton() {
-        print(#function)
+    @objc func didTabWithdrawal() {
+        let vc = WithdrawViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
     }
+
 }
 
 extension PutMyInfoViewController: UITableViewDelegate, UITableViewDataSource {
@@ -62,6 +66,7 @@ extension PutMyInfoViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: PutCell.reuseIdentifier, for: indexPath) as! PutCell
+            cell.withdrawButton.addTarget(self, action: #selector(didTabWithdrawal), for: .touchUpInside)
             return cell
         }
     }
@@ -72,7 +77,7 @@ extension PutMyInfoViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.section == 1 {
             return 120
         } else {
-            return 300
+            return 350
         }
 
     }

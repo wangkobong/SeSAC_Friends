@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Then
+import RangeSeekSlider
 
 class PutCell: UITableViewCell {
 
@@ -68,9 +69,25 @@ class PutCell: UITableViewCell {
         $0.textColor = UIColor.brandColor(.green)
     }
 
-    let ageSlider = UISlider().then {
-        $0.minimumValue = 18
-        $0.maximumValue = 35
+    let ageSlider = RangeSeekSlider().then {
+        $0.minValue = 18
+        $0.maxValue = 65
+        $0.handleColor = UIColor.brandColor(.green)
+        $0.handleBorderColor = UIColor.brandColor(.white)
+        $0.colorBetweenHandles = UIColor.brandColor(.green)
+        $0.tintColor = UIColor.brandColor(.gray3)
+        $0.lineHeight = 5
+        $0.handleDiameter = 20.0
+        $0.hideLabels = true
+        $0.handleBorderWidth = 1
+
+    }
+
+    let withdrawButton = UIButton().then {
+        $0.setTitle("탈퇴하기", for: .normal)
+        $0.backgroundColor = .systemBackground
+        $0.setTitleColor(UIColor.brandColor(.black), for: .normal)
+        $0.titleLabel?.font = UIFont.NotoSans(.regular, size: 14)
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -86,7 +103,7 @@ class PutCell: UITableViewCell {
 
     internal func setupView() {
 
-        [genderLabel, myHobbyLabel, isPermittedLabel, partnerAge, maleButton, femaleButton, dividingLine, hobbyTextField, permitSwitch, ageLabel, ageSlider].forEach {
+        [genderLabel, myHobbyLabel, isPermittedLabel, partnerAge, maleButton, femaleButton, dividingLine, hobbyTextField, permitSwitch, ageLabel, ageSlider, withdrawButton].forEach {
             contentView.addSubview($0)
         }
     }
@@ -153,7 +170,13 @@ class PutCell: UITableViewCell {
         ageSlider.snp.makeConstraints {
             $0.leading.equalTo(self)
             $0.trailing.equalTo(self)
-            $0.top.equalTo(ageLabel.snp.bottom).offset(23)
+            $0.top.equalTo(ageLabel.snp.bottom)
+        }
+
+        withdrawButton.snp.makeConstraints {
+            $0.top.equalTo(ageSlider.snp.bottom).offset(20)
+            $0.leading.equalTo(self)
+            $0.height.equalTo(22)
         }
 
     }

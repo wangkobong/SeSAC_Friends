@@ -23,13 +23,12 @@ class ReviewCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setupView()
         setupConstraints()
-        button1.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
+        button1.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-//        setupView()
-//        setupConstraints()
     }
 
     internal func setupView() {

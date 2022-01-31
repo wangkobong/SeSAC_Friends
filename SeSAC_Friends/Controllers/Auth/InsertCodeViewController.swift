@@ -59,6 +59,7 @@ class InsertCodeViewController: UIViewController {
                     print(self, token)
                     UserDefaults.standard.set(token, forKey: K.idToken)
                     AuthManager.checkSignUp(token: token) { success, statusCode in
+                        print("문자인증후 응답코드: \(statusCode)")
                         if success && statusCode == 200 {
                             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
                             let vc = UITabBarController()
