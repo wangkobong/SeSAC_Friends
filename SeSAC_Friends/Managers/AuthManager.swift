@@ -120,4 +120,35 @@ class AuthManager {
                 }
             }
     }
+
+    static func updateUser(searchable: Int, ageMin: Int, ageMax: Int, gedner: Int, hobby: String, completion: @escaping (Bool, Int?) -> Void) {
+        let idToken = UserDefaults.standard.string(forKey: K.idToken) ?? ""
+        let url = K.makeEndPoint("user/update/mypage")
+
+        let body: Parameters = [
+            "searchable": searchable,
+            "ageMin": ageMin,
+            "ageMax": ageMax,
+            "gender": gedner,
+            "hobby": hobby
+        ]
+
+        let header: HTTPHeaders = [
+            "idtoken": idToken
+        ]
+
+        AF.request(url, method: .post, parameters: body, headers: header)
+            .validate(statusCode: 200...501)
+            .responseString { response in
+                let code = response.response?.statusCode
+                switch response.result {
+                case .success:
+                    print(code)
+                    completion(true, code)
+                case .failure(let error):
+                    print(error)
+                    completion(false, code)
+                }
+            }
+    }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RangeSeekSlider
 
 class PutMyInfoViewController: UIViewController {
 
@@ -16,6 +17,12 @@ class PutMyInfoViewController: UIViewController {
 
     var buttons = [Buttons]()
     var userInfo: User?
+    var min: Int?
+    var max: Int?
+
+    deinit {
+        print("deinit")
+    }
 
     override func loadView() {
         self.view = infoManageView
@@ -24,8 +31,14 @@ class PutMyInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UserDefaults.standard.string(forKey: K.idToken))
-        print("userInfo: \(userInfo)")
+
         view.backgroundColor = .systemBackground
+        self.navigationController?.navigationBar.tintColor = UIColor.brandColor(.black)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(didTapSave))
+
+        min = userInfo?.ageMin
+        max = userInfo?.ageMax
+
         infoManageView.tableView.delegate = self
         infoManageView.tableView.dataSource = self
 
@@ -36,6 +49,65 @@ class PutMyInfoViewController: UIViewController {
         buttons.append(Buttons(buttonTitle: "능숙한 취미 실력", bgColor: .brandColor(.green)))
         buttons.append(Buttons(buttonTitle: "유익한 시간", bgColor: .brandColor(.green)))
 
+        myInfoViewModel.searchable.bind { isOn in
+            self.putCell.isOnNumber = isOn
+        }
+
+        myInfoViewModel.ageMin.bind { ageMin in
+            self.putCell.ageSlider.selectedMinValue = CGFloat(ageMin)
+        }
+
+        myInfoViewModel.ageMax.bind { ageMax in
+            self.putCell.ageSlider.selectedMaxValue = CGFloat(ageMax)
+        }
+
+        myInfoViewModel.gender.bind { gender in
+            self.putCell.gender = gender
+        }
+
+        myInfoViewModel.hobby.bind { hobby in
+            self.putCell.hobbyTextField.text = hobby
+        }
+
+    }
+
+    @objc private func didTapGenderButton(_ sender: UIButton) {
+
+        if sender.tag == 1 {
+            sender.isSelected = !sender.isSelected
+            putCell.changeButtonBackgroundColor(buttonTag: sender.tag)
+            putCell.passMaleNumber()
+            print("femaleButton.isSelected \(putCell.femaleButton.isSelected)")
+            print("maleButton.isSelected \(putCell.maleButton.isSelected)")
+//            infoManageView.tableView.reloadData()
+
+        } else {
+            sender.isSelected = !sender.isSelected
+            putCell.changeButtonBackgroundColor(buttonTag: sender.tag)
+            putCell.passFemaleNumber()
+            print("femaleButton.isSelected \(putCell.femaleButton.isSelected)")
+            print("maleButton.isSelected \(putCell.maleButton.isSelected)")
+//            infoManageView.tableView.reloadData()
+        }
+
+        myInfoViewModel.gender.value = putCell.gender
+    }
+
+    @objc private func switchDidChange(_ searchable: UISwitch) {
+        putCell.passIsOn(isOn: searchable.isOn)
+        myInfoViewModel.searchable.value = putCell.isOnNumber
+    }
+
+    @objc private func hobbyTextFieldDidChange(_ textField: UITextField) {
+        myInfoViewModel.hobby.value = textField.text ?? ""
+    }
+
+    @objc func sliderDidSliding(_ slider: RangeSeekSlider) {
+        min = Int(slider.selectedMinValue)
+        max = Int(slider.selectedMaxValue)
+        myInfoViewModel.ageMin.value = Int(slider.selectedMinValue)
+        myInfoViewModel.ageMax.value = Int(slider.selectedMaxValue)
+        infoManageView.tableView.reloadData()
     }
 
     @objc func didTabWithdrawal() {
@@ -43,6 +115,16 @@ class PutMyInfoViewController: UIViewController {
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true, completion: nil)
+    }
+
+    @objc private func didTapSave() {
+        myInfoViewModel.updateInfo { success, statusCode in
+            if success {
+                print("성공", statusCode)
+            } else {
+                print("실패", statusCode)
+            }
+        }
     }
 
 }
@@ -68,8 +150,16 @@ extension PutMyInfoViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: PutCell.reuseIdentifier, for: indexPath) as! PutCell
+            guard let currentUser = userInfo else { return  cell}
+            let buttonArr = [cell.maleButton, cell.femaleButton]
+            cell.ageSlider.addTarget(self, action: #selector(sliderDidSliding), for: .touchUpInside)
+            cell.hobbyTextField.addTarget(self, action: #selector(hobbyTextFieldDidChange(_:)), for: .editingChanged)
             cell.withdrawButton.addTarget(self, action: #selector(didTabWithdrawal), for: .touchUpInside)
-            cell.load(user: self.userInfo!)
+            cell.permitSwitch.addTarget(self, action: #selector(switchDidChange(_:)), for: .touchUpInside)
+            buttonArr.forEach {
+                $0.addTarget(self, action: #selector(didTapGenderButton(_:)), for: .touchUpInside)
+            }
+            cell.load(isOn: currentUser.searchable, gender: currentUser.gender, ageMax: max!, ageMin: min!)
             return cell
         }
     }
