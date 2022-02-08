@@ -121,6 +121,7 @@ class PutMyInfoViewController: UIViewController {
         myInfoViewModel.updateInfo { success, statusCode in
             if success {
                 print("성공", statusCode)
+                self.navigationController?.popViewController(animated: true)
             } else {
                 print("실패", statusCode)
             }

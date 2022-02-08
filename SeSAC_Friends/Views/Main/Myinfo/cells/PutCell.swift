@@ -109,8 +109,8 @@ class PutCell: UITableViewCell {
         setupView()
         setupConstraints()
 //        setGender()
-        setSwitch()
-        setAge()
+//        setSwitch()
+//        setAge()
     }
 
     required init?(coder: NSCoder) {
