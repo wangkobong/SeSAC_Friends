@@ -29,11 +29,15 @@ class HomeView: UIView {
     }
 
     let stackView = UIStackView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .vertical
         $0.spacing = 0
         $0.distribution = .fillEqually
+        $0.layer.shadowRadius = 10
         $0.layer.cornerRadius = 8
+        $0.layer.shadowOpacity = 0.5
         $0.layer.masksToBounds = true
+        $0.layer.shadowOffset = CGSize(width: 1, height: 1)
     }
 
     let bothButton = UIButton().then {
