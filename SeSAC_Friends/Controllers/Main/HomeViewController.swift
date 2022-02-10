@@ -23,18 +23,33 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(UserDefaults.standard.string(forKey: K.idToken))
         view.backgroundColor = .systemBackground
         title = "친구찾기"
         let mapView = homeView.mapView
         homeView.mapView.delegate = self
         locationManager.delegate = self
-
-        locationManager.startUpdatingLocation()
-        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
-        locationManager.distanceFilter = 10.0
         locationManager.requestAlwaysAuthorization()
-        mapView.showsUserLocation = true
+//        if CLLocationManager.locationServicesEnabled() {
+//            locationManager.delegate = self
+//            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//            locationManager.startUpdatingLocation()
+//        }
+
+//        if let coor = mapView.userLocation.location?.coordinate {
+//            mapView.setCenter(coor, animated: true)
+//        }
+
         homeView.myLocationButton.addTarget(self, action: #selector(didTapMyLocation), for: .touchUpInside)
+        // 뷰디드로드에 셋리젼
+        setMyLocation(mapView)
+    }
+
+    func setMyLocation(_ mapView: MKMapView) {
+        let coor = locationManager.location?.coordinate
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.1)
+        let region = MKCoordinateRegion(center: coor!, span: span)
+        mapView.setRegion(region, animated: true)
     }
 
     @objc private func didTapMyLocation() {
@@ -43,8 +58,8 @@ class HomeViewController: UIViewController {
             return
         }
         let mapView = homeView.mapView
-        mapView.showsUserLocation = true
-        mapView.setUserTrackingMode(.follow, animated: true)
+        setMyLocation(mapView)
+//        mapView.setUserTrackingMode(.follow, animated: true)
 
     }
 
@@ -123,7 +138,7 @@ extension HomeViewController: CLLocationManagerDelegate, MKMapViewDelegate {
             mapView.setRegion(region, animated: true)
 
             // 10. (중요)
-//            locationManager.startUpdatingLocation()
+            locationManager.stopUpdatingLocation()
         } else {
             print("Location Cannot Find")
         }
@@ -151,19 +166,28 @@ extension HomeViewController: CLLocationManagerDelegate, MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         print(#function)
-
+        let coordinate = CLLocationCoordinate2DMake(mapView.region.center.latitude, mapView.region.center.longitude)
+        var span = mapView.region.span
+        if span.latitudeDelta < 0.002 { // MIN LEVEL
+         span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
+        } else if span.latitudeDelta > 0.1 { // MAX LEVEL
+         span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        }
+        let region = MKCoordinateRegion(center: coordinate, span: span)
         let annotation = MKPointAnnotation()
-        let currentCoordinate = mapView.centerCoordinate
-        self.currentCenterCoordinate = currentCoordinate
-        print("현재 좌표: \(currentCenterCoordinate)")
         let annotations = mapView.annotations
         mapView.removeAnnotations(annotations)
-        annotation.title = "center of map"
+        annotation.title = "가운데"
         annotation.coordinate = mapView.centerCoordinate
         mapView.addAnnotation(annotation)
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        let region = MKCoordinateRegion(center: mapView.centerCoordinate, span: span)
         mapView.setRegion(region, animated: true)
+
+        let lat = Double(coordinate.latitude)
+        let long = Double(coordinate.longitude)
+        guard let regionResult = Int(QueueManager.getRegion(lat: lat, long: long)) else { return }
+
+        print("lat: \(lat), long: \(long)")
+        print("현재 region: \(regionResult)")
     }
 
 }
