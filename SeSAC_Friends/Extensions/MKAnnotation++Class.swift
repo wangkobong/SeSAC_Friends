@@ -13,6 +13,7 @@ import MapKit
 class MyAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var tag: Int?
+    var gender: Int?
     init(coordinate: CLLocationCoordinate2D) {
         self.coordinate = coordinate
     }

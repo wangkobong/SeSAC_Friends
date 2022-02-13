@@ -17,6 +17,14 @@ class HomeViewController: UIViewController {
     var centerAnnotation = MKPointAnnotation()
     var currentCenterCoordinate: CLLocationCoordinate2D?
     var users: [Queue]?
+    var userForFiltering: Queue?
+    // 0: 여자, 1: 남자
+    var filteringGenderNumber: Int = -1 {
+        didSet {
+            print("genderNumber는 \(oldValue) 에서 \(filteringGenderNumber)로 변경됨")
+            filterAnnotations(genderNumber: filteringGenderNumber)
+        }
+    }
 
     override func loadView() {
         view = homeView
@@ -31,19 +39,14 @@ class HomeViewController: UIViewController {
         homeView.mapView.delegate = self
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
-//        if CLLocationManager.locationServicesEnabled() {
-//            locationManager.delegate = self
-//            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//            locationManager.startUpdatingLocation()
-//        }
-
-//        if let coor = mapView.userLocation.location?.coordinate {
-//            mapView.setCenter(coor, animated: true)
-//        }
 
         homeView.myLocationButton.addTarget(self, action: #selector(didTapMyLocation), for: .touchUpInside)
         // 뷰디드로드에 셋리젼
         setMyLocation(mapView)
+        homeView.bothButton.isSelected = true
+        homeView.bothButton.addTarget(self, action: #selector(didTapAll(_:)), for: .touchUpInside)
+        homeView.maleButton.addTarget(self, action: #selector(didTapMale(_:)), for: .touchUpInside)
+        homeView.femaleButton.addTarget(self, action: #selector(didTapFemale(_:)), for: .touchUpInside)
     }
 
     func setMyLocation(_ mapView: MKMapView) {
@@ -53,36 +56,78 @@ class HomeViewController: UIViewController {
         mapView.setRegion(region, animated: true)
     }
 
-    func addAnnotationsOnMap(locationsInfo: Queue) {
+    func addAnnotationsOnMap(locationsInfo: Queue, genderNumber: Int) {
 
         let mapView = homeView.mapView
-        var annotations = [MKAnnotation]()
+        var annotations = mapView.annotations
+        var filteredAnnotations = [MyAnnotation]()
         annotations.removeAll()
         locationsInfo.fromQueueDB.forEach {
             let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
             let annotation = MyAnnotation(coordinate: coordinate)
             annotation.coordinate = coordinate
             annotation.tag = $0.sesac
+            annotation.gender = $0.gender
             annotations.append(annotation)
+            if genderNumber == -1 {
+                filteredAnnotations = annotations as! [MyAnnotation]
+            } else if genderNumber == 0 {
+                let test = annotations as! [MyAnnotation]
+                filteredAnnotations = test.filter { $0.gender == 0}
+            } else {
+                let test = annotations as! [MyAnnotation]
+                filteredAnnotations = test.filter { $0.gender == 1}
+            }
+
             print("------------------------")
             print("닉네임: \($0.nick)")
             print("lat: \($0.lat)")
             print("long: \($0.long)")
             print("이미지번호: \($0.sesac)")
+            print("성별: \($0.gender)")
         }
-        print("annotations: \(annotations)")
-        mapView.addAnnotations(annotations)
+        mapView.addAnnotations(filteredAnnotations)
     }
 
     @objc private func didTapMyLocation() {
-        print(#function)
-//        guard locationManager.location != nil else {
-//            return
-//        }
         let mapView = homeView.mapView
         setMyLocation(mapView)
-//        mapView.setUserTrackingMode(.follow, animated: true)
+    }
 
+    private func setButtonStatus(sender: UIButton) {
+        sender.isSelected = true
+        if sender.titleLabel?.text == "전체" {
+            homeView.maleButton.isSelected = false
+            homeView.femaleButton.isSelected = false
+        } else if sender.titleLabel?.text == "남자" {
+            homeView.bothButton.isSelected = false
+            homeView.femaleButton.isSelected = false
+        } else {
+            homeView.bothButton.isSelected = false
+            homeView.maleButton.isSelected = false
+        }
+    }
+
+    private func filterAnnotations(genderNumber: Int) {
+        let annotations = homeView.mapView.annotations.filter({ !($0 is MKUserLocation) })
+        homeView.mapView.removeAnnotations(annotations)
+        addAnnotationsOnMap(locationsInfo: userForFiltering!, genderNumber: filteringGenderNumber)
+    }
+
+    @objc private func didTapAll(_ sender: UIButton) {
+        setButtonStatus(sender: sender)
+        filteringGenderNumber = -1
+
+    }
+
+    @objc private func didTapMale(_ sender: UIButton) {
+        setButtonStatus(sender: sender)
+        filteringGenderNumber = 1
+    }
+
+    @objc private func didTapFemale(_ sender: UIButton) {
+        setButtonStatus(sender: sender)
+        filteringGenderNumber = 0
     }
 
 }
@@ -147,23 +192,7 @@ extension HomeViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(#function)
         print("mylocation: \(locations)")
-        let mapView = homeView.mapView
-        if let coordinate = locations.last?.coordinate {
 
-            let annotation = MKPointAnnotation()
-            annotation.title = "CURRENT LOCATION"
-            annotation.coordinate = coordinate
-            mapView.addAnnotation(annotation)
-
-            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            let region = MKCoordinateRegion(center: coordinate, span: span)
-            mapView.setRegion(region, animated: true)
-
-            // 10. (중요)
-            locationManager.stopUpdatingLocation()
-        } else {
-            print("Location Cannot Find")
-        }
     }
 
     // 5. 위치 접근이 실패했을 경우
@@ -206,7 +235,8 @@ extension HomeViewController: CLLocationManagerDelegate, MKMapViewDelegate {
                 print("onqueue 실패: \(statusCode)")
                 return
             }
-            self.addAnnotationsOnMap(locationsInfo: otherUsers)
+            self.userForFiltering = otherUsers
+            self.addAnnotationsOnMap(locationsInfo: otherUsers, genderNumber: self.filteringGenderNumber)
         }
     }
 

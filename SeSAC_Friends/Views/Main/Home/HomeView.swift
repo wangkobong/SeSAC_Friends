@@ -43,10 +43,10 @@ class HomeView: UIView {
     let bothButton = UIButton().then {
         $0.setTitle("전체", for: .normal)
         $0.titleLabel?.font = UIFont.NotoSans(.regular, size: 14)
-        $0.setTitleColor(UIColor.brandColor(.white), for: .normal)
-//        $0.setTitleColor(UIColor.brandColor(.white), for: .selected)
-//        $0.setBackgroundColor(.systemBackground, for: .normal)
-        $0.setBackgroundColor(UIColor.brandColor(.green), for: .normal)
+        $0.setTitleColor(UIColor.brandColor(.black), for: .normal)
+        $0.setTitleColor(UIColor.brandColor(.white), for: .selected)
+        $0.setBackgroundColor(.systemBackground, for: .normal)
+        $0.setBackgroundColor(UIColor.brandColor(.green), for: .selected)
     }
 
     let maleButton = UIButton().then {
