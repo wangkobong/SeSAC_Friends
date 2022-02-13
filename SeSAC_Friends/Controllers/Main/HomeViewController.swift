@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     let locationManager = CLLocationManager()
     var centerAnnotation = MKPointAnnotation()
     var currentCenterCoordinate: CLLocationCoordinate2D?
+    var users: [Queue]?
 
     override func loadView() {
         view = homeView
@@ -52,11 +53,32 @@ class HomeViewController: UIViewController {
         mapView.setRegion(region, animated: true)
     }
 
+    func addAnnotationsOnMap(locationsInfo: Queue) {
+
+        let mapView = homeView.mapView
+        var annotations = [MKAnnotation]()
+        annotations.removeAll()
+        locationsInfo.fromQueueDB.forEach {
+            let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
+            let annotation = MyAnnotation(coordinate: coordinate)
+            annotation.coordinate = coordinate
+            annotation.tag = $0.sesac
+            annotations.append(annotation)
+            print("------------------------")
+            print("닉네임: \($0.nick)")
+            print("lat: \($0.lat)")
+            print("long: \($0.long)")
+            print("이미지번호: \($0.sesac)")
+        }
+        print("annotations: \(annotations)")
+        mapView.addAnnotations(annotations)
+    }
+
     @objc private func didTapMyLocation() {
         print(#function)
-        guard let currentLocation = locationManager.location else {
-            return
-        }
+//        guard locationManager.location != nil else {
+//            return
+//        }
         let mapView = homeView.mapView
         setMyLocation(mapView)
 //        mapView.setUserTrackingMode(.follow, animated: true)
@@ -165,29 +187,68 @@ extension HomeViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        print(#function)
         let coordinate = CLLocationCoordinate2DMake(mapView.region.center.latitude, mapView.region.center.longitude)
         var span = mapView.region.span
         if span.latitudeDelta < 0.002 { // MIN LEVEL
          span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
-        } else if span.latitudeDelta > 0.1 { // MAX LEVEL
-         span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        } else if span.latitudeDelta > 0.3 { // MAX LEVEL
+         span = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
         }
         let region = MKCoordinateRegion(center: coordinate, span: span)
-        let annotation = MKPointAnnotation()
-        let annotations = mapView.annotations
-        mapView.removeAnnotations(annotations)
-        annotation.title = "가운데"
-        annotation.coordinate = mapView.centerCoordinate
-        mapView.addAnnotation(annotation)
         mapView.setRegion(region, animated: true)
 
         let lat = Double(coordinate.latitude)
         let long = Double(coordinate.longitude)
         guard let regionResult = Int(QueueManager.getRegion(lat: lat, long: long)) else { return }
 
-        print("lat: \(lat), long: \(long)")
-        print("현재 region: \(regionResult)")
+        QueueManager.onqueue(lat: lat, long: long, region: regionResult) { otherUsers, statusCode in
+            guard let otherUsers = otherUsers else {
+                print("onqueue 실패: \(statusCode)")
+                return
+            }
+            self.addAnnotationsOnMap(locationsInfo: otherUsers)
+        }
+    }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+        if annotation is MKUserLocation {
+            return nil
+        }
+        guard let annotation = annotation as? MyAnnotation else { return nil }
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "custom")
+
+        if annotationView == nil {
+            // CREATE VIEW
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
+        } else {
+            // ASSIGN ANNOTATION
+            annotationView?.annotation = annotation
+        }
+        var pinImage = UIImage(named: "sesac_face_1")
+        // SET CUSTOM ANNOTATION IMAGES
+        switch annotation.tag {
+        case 0:
+            pinImage = UIImage(named: "sesac_face_1")
+        case 1:
+            pinImage = UIImage(named: "sesac_face_2")
+        case 2:
+            pinImage = UIImage(named: "sesac_face_3")
+        case 3:
+            pinImage = UIImage(named: "sesac_face_4")
+        case 4:
+            pinImage = UIImage(named: "sesac_face_5")
+        default:
+            annotationView?.image = UIImage(named: "search_face_0")
+        }
+        let size = CGSize(width: 80, height: 80)
+
+        UIGraphicsBeginImageContext(size)
+        pinImage!.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        annotationView?.image = resizedImage
+
+        return annotationView
     }
 
 }

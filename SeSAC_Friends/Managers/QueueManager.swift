@@ -23,7 +23,35 @@ class QueueManager {
         return latString + longString
     }
 
-    static func onqueue(lat: Double, long: Double, region: Int) {
+    static func onqueue(lat: Double, long: Double, region: Int, completion: @escaping (Queue?, Int?) -> Void) {
+        let idToken = UserDefaults.standard.string(forKey: K.idToken) ?? ""
+        let url = K.makeEndPoint("queue/onqueue")
+
+        let body: Parameters = [
+            "region": region,
+            "lat": lat,
+            "long": long
+        ]
+
+        let header: HTTPHeaders = [
+            "idtoken": idToken
+        ]
+
+        AF.request(url, method: .post, parameters: body, headers: header)
+            .validate(statusCode: 200...501)
+            .responseDecodable(of: Queue.self) { response in
+                let code = response.response?.statusCode
+                let otherUSer = response.value
+                switch response.result {
+                case .success:
+                    print(response.value)
+                    print(code)
+                    completion(otherUSer, code)
+                case .failure(let error):
+                    print(error)
+                    completion(nil, code)
+                }
+            }
 
     }
 }

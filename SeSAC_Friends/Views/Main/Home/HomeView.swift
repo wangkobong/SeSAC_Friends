@@ -81,6 +81,12 @@ class HomeView: UIView {
         $0.layer.cornerRadius = 30
     }
 
+    let myPin: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = UIImage(named: "map_marker")
+        return imageView
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -99,7 +105,7 @@ class HomeView: UIView {
             stackView.addArrangedSubview($0)
         }
 
-        [mapView, viewForStackView, stackView, myLocationButton, matchingButton].forEach {
+        [mapView, viewForStackView, stackView, myLocationButton, matchingButton, myPin].forEach {
             addSubview($0)
         }
     }
@@ -136,6 +142,12 @@ class HomeView: UIView {
             $0.height.equalTo(64)
             $0.trailing.equalTo(self).offset(-16)
             $0.bottom.equalTo(mapView.snp.bottom).offset(-16)
+        }
+
+        myPin.snp.makeConstraints {
+            $0.width.equalTo(48)
+            $0.height.equalTo(48)
+            $0.center.equalToSuperview()
         }
     }
 }
