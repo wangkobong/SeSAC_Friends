@@ -47,6 +47,7 @@ class HomeViewController: UIViewController {
         homeView.bothButton.addTarget(self, action: #selector(didTapAll(_:)), for: .touchUpInside)
         homeView.maleButton.addTarget(self, action: #selector(didTapMale(_:)), for: .touchUpInside)
         homeView.femaleButton.addTarget(self, action: #selector(didTapFemale(_:)), for: .touchUpInside)
+        homeView.matchingButton.addTarget(self, action: #selector(didTapMatching), for: .touchUpInside)
     }
 
     func setMyLocation(_ mapView: MKMapView) {
@@ -54,44 +55,6 @@ class HomeViewController: UIViewController {
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: coor!, span: span)
         mapView.setRegion(region, animated: true)
-    }
-
-    func addAnnotationsOnMap(locationsInfo: Queue, genderNumber: Int) {
-
-        let mapView = homeView.mapView
-        var annotations = mapView.annotations
-        var filteredAnnotations = [MyAnnotation]()
-        annotations.removeAll()
-        locationsInfo.fromQueueDB.forEach {
-            let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
-            let annotation = MyAnnotation(coordinate: coordinate)
-            annotation.coordinate = coordinate
-            annotation.tag = $0.sesac
-            annotation.gender = $0.gender
-            annotations.append(annotation)
-            if genderNumber == -1 {
-                filteredAnnotations = annotations as! [MyAnnotation]
-            } else if genderNumber == 0 {
-                let test = annotations as! [MyAnnotation]
-                filteredAnnotations = test.filter { $0.gender == 0}
-            } else {
-                let test = annotations as! [MyAnnotation]
-                filteredAnnotations = test.filter { $0.gender == 1}
-            }
-
-            print("------------------------")
-            print("닉네임: \($0.nick)")
-            print("lat: \($0.lat)")
-            print("long: \($0.long)")
-            print("이미지번호: \($0.sesac)")
-            print("성별: \($0.gender)")
-        }
-        mapView.addAnnotations(filteredAnnotations)
-    }
-
-    @objc private func didTapMyLocation() {
-        let mapView = homeView.mapView
-        setMyLocation(mapView)
     }
 
     private func setButtonStatus(sender: UIButton) {
@@ -114,6 +77,44 @@ class HomeViewController: UIViewController {
         addAnnotationsOnMap(locationsInfo: userForFiltering!, genderNumber: filteringGenderNumber)
     }
 
+    func addAnnotationsOnMap(locationsInfo: Queue, genderNumber: Int) {
+
+        let mapView = homeView.mapView
+        var annotations = mapView.annotations
+        var filteredAnnotations = [MyAnnotation]()
+        annotations.removeAll()
+        locationsInfo.fromQueueDB.forEach {
+            let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.long)
+            let annotation = MyAnnotation(coordinate: coordinate)
+            annotation.coordinate = coordinate
+            annotation.tag = $0.sesac
+            annotation.gender = $0.gender
+            annotations.append(annotation)
+            if genderNumber == -1 {
+                filteredAnnotations = annotations as! [MyAnnotation]
+            } else if genderNumber == 0 {
+                let myAnnotations = annotations as! [MyAnnotation]
+                filteredAnnotations = myAnnotations.filter { $0.gender == 0}
+            } else {
+                let myAnnotations = annotations as! [MyAnnotation]
+                filteredAnnotations = myAnnotations.filter { $0.gender == 1}
+            }
+
+            print("------------------------")
+            print("닉네임: \($0.nick)")
+            print("lat: \($0.lat)")
+            print("long: \($0.long)")
+            print("이미지번호: \($0.sesac)")
+            print("성별: \($0.gender)")
+        }
+        mapView.addAnnotations(filteredAnnotations)
+    }
+
+    @objc private func didTapMyLocation() {
+        let mapView = homeView.mapView
+        setMyLocation(mapView)
+    }
+
     @objc private func didTapAll(_ sender: UIButton) {
         setButtonStatus(sender: sender)
         filteringGenderNumber = -1
@@ -128,6 +129,12 @@ class HomeViewController: UIViewController {
     @objc private func didTapFemale(_ sender: UIButton) {
         setButtonStatus(sender: sender)
         filteringGenderNumber = 0
+    }
+
+    @objc private func didTapMatching() {
+        let vc = PostHobbyViewController()
+        navigationItem.backButtonTitle = ""
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }
