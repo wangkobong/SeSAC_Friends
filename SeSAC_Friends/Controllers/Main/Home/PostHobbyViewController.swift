@@ -10,6 +10,7 @@ import UIKit
 class PostHobbyViewController: UIViewController {
 
     private let postHobbyView = PostHobbyView()
+    var hf: [String] = []
 
     override func loadView() {
         view = postHobbyView
@@ -21,6 +22,7 @@ class PostHobbyViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         setNavigationBar()
         setSearchBar()
+        print("hf: \(hf)")
         postHobbyView.collectionView.delegate = self
         postHobbyView.collectionView.dataSource = self
     }
@@ -43,14 +45,35 @@ class PostHobbyViewController: UIViewController {
 
 }
 
-extension PostHobbyViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+ extension PostHobbyViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+     func numberOfSections(in collectionView: UICollectionView) -> Int {
+         2
+     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        hf.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HobbyCollectionViewCell.reuseIdentifier, for: indexPath) as! HobbyCollectionViewCell
+        if indexPath.section == 0 {
+            cell.label.text = hf[indexPath.row]
+            return cell
+        } else {
+            cell.label.text = hf[indexPath.row]
+            return cell
+        }
+
     }
-    
-    
-}
+
+     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SubjectCollectionReusableView.identifier, for: indexPath) as! SubjectCollectionReusableView
+         header.configure()
+         header.label.text = "지금 주변에는"
+         return header
+     }
+
+     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+         return CGSize(width: view.frame.size.width, height: 18)
+     }
+
+ }

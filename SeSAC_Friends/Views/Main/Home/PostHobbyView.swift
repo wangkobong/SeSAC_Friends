@@ -12,9 +12,15 @@ import Then
 
 class PostHobbyView: UIView {
 
-    let collectionView = UICollectionView().then {
-        $0.register(HobbyCollectionViewCell.self, forCellWithReuseIdentifier: HobbyCollectionViewCell.reuseIdentifier)
-    }
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(HobbyCollectionViewCell.self, forCellWithReuseIdentifier: HobbyCollectionViewCell.reuseIdentifier)
+        collectionView.register(SubjectCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SubjectCollectionReusableView.identifier)
+        collectionView.backgroundColor = .systemYellow
+
+        return collectionView
+    }()
 
     let FindHobbyButton = UIButton().then {
         $0.setTitle("새싹 찾기", for: .normal)
@@ -35,7 +41,7 @@ class PostHobbyView: UIView {
 
     private func setupView() {
 
-        [FindHobbyButton].forEach {
+        [FindHobbyButton, collectionView].forEach {
             addSubview($0)
         }
     }
@@ -46,6 +52,13 @@ class PostHobbyView: UIView {
             $0.leading.equalTo(self).offset(16)
             $0.trailing.equalTo(self).offset(-16)
             $0.bottom.equalTo(self).offset(-16)
+        }
+
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(safeAreaLayoutGuide).offset(32)
+            $0.leading.equalTo(self).offset(16)
+            $0.trailing.equalTo(self).offset(-16)
+            $0.bottom.equalTo(FindHobbyButton.snp.top).offset(-10)
         }
     }
 }

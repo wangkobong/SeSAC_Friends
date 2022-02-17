@@ -50,6 +50,11 @@ class HomeViewController: UIViewController {
         homeView.matchingButton.addTarget(self, action: #selector(didTapMatching), for: .touchUpInside)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+
     func setMyLocation(_ mapView: MKMapView) {
         let coor = locationManager.location?.coordinate
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.1)
@@ -132,8 +137,10 @@ class HomeViewController: UIViewController {
     }
 
     @objc private func didTapMatching() {
+        let hf = userForFiltering?.fromRecommend
         let vc = PostHobbyViewController()
         navigationItem.backButtonTitle = ""
+        vc.hf = hf ?? []
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
