@@ -21,7 +21,6 @@ class HomeViewController: UIViewController {
     // 0: 여자, 1: 남자
     var filteringGenderNumber: Int = -1 {
         didSet {
-            print("genderNumber는 \(oldValue) 에서 \(filteringGenderNumber)로 변경됨")
             filterAnnotations(genderNumber: filteringGenderNumber)
         }
     }
@@ -56,9 +55,9 @@ class HomeViewController: UIViewController {
     }
 
     func setMyLocation(_ mapView: MKMapView) {
-        let coor = locationManager.location?.coordinate
+        guard let coor = locationManager.location?.coordinate else { return  }
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.1)
-        let region = MKCoordinateRegion(center: coor!, span: span)
+        let region = MKCoordinateRegion(center: coor, span: span)
         mapView.setRegion(region, animated: true)
     }
 

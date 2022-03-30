@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		F9FA4AF40C7C88234B27CDE7 /* Pods_SeSAC_Friends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9DAFE1E8B256EA39D6DA9D3 /* Pods_SeSAC_Friends.framework */; };
+		FE11DC8627B8E4D70087F20A /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE11DC8527B8E4D70087F20A /* Queue.swift */; };
+		FE11DC8827B9181B0087F20A /* MKAnnotation++Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE11DC8727B9181B0087F20A /* MKAnnotation++Class.swift */; };
+		FE11DC8B27BA92AE0087F20A /* PostHobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE11DC8A27BA92AE0087F20A /* PostHobbyViewController.swift */; };
+		FE11DC8D27BA92DC0087F20A /* PostHobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE11DC8C27BA92DC0087F20A /* PostHobbyView.swift */; };
+		FE11DC9027BA9B8F0087F20A /* HobbyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE11DC8F27BA9B8F0087F20A /* HobbyCollectionViewCell.swift */; };
+		FE11DC9227BAACF50087F20A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE11DC9127BAACF50087F20A /* TestViewController.swift */; };
+		FE11DC9427BAAE3C0087F20A /* MyCollectionViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE11DC9327BAAE3C0087F20A /* MyCollectionViewCell2.swift */; };
+		FE11DC9727BAAEC00087F20A /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE11DC9527BAAEC00087F20A /* TestCollectionViewCell.swift */; };
+		FE11DC9827BAAEC00087F20A /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE11DC9627BAAEC00087F20A /* TestCollectionViewCell.xib */; };
+		FE11DC9A27BAB0430087F20A /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE11DC9927BAB0430087F20A /* HeaderCollectionReusableView.swift */; };
+		FE11DC9C27BAC53C0087F20A /* SubjectCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE11DC9B27BAC53C0087F20A /* SubjectCollectionReusableView.swift */; };
+		FE198EEC27B2D1C6008DD402 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE198EEB27B2D1C6008DD402 /* QueueManager.swift */; };
 		FE4A1B4A279FCC7700BEA8C9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4A1B49279FCC7700BEA8C9 /* HomeViewController.swift */; };
 		FE4A1B4C279FCD0C00BEA8C9 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4A1B4B279FCD0C00BEA8C9 /* ShopViewController.swift */; };
 		FE4A1B4E279FCD3900BEA8C9 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4A1B4D279FCD3900BEA8C9 /* FriendViewController.swift */; };
@@ -77,6 +89,7 @@
 		FED55D5727A80B4500FFF31D /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED55D5627A80B4500FFF31D /* WithdrawViewController.swift */; };
 		FED55D5927A80B8200FFF31D /* WithdrawAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED55D5827A80B8200FFF31D /* WithdrawAlertView.swift */; };
 		FED55D5C27A81E9400FFF31D /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED55D5B27A81E9400FFF31D /* MyInfoViewModel.swift */; };
+		FED55D5E27A921FC00FFF31D /* UIButton++Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED55D5D27A921FC00FFF31D /* UIButton++Extension.swift */; };
 		FEF232F5279698760082EBCC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FEF232F4279698760082EBCC /* .swiftlint.yml */; };
 		FEF232FC27969A3C0082EBCC /* AuthPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +98,18 @@
 		053E8859A5D0AB3278236F8A /* Pods-SeSAC_Friends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSAC_Friends.release.xcconfig"; path = "Target Support Files/Pods-SeSAC_Friends/Pods-SeSAC_Friends.release.xcconfig"; sourceTree = "<group>"; };
 		B9DAFE1E8B256EA39D6DA9D3 /* Pods_SeSAC_Friends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeSAC_Friends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6DB90AD6C85878ECF3B211B /* Pods-SeSAC_Friends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSAC_Friends.debug.xcconfig"; path = "Target Support Files/Pods-SeSAC_Friends/Pods-SeSAC_Friends.debug.xcconfig"; sourceTree = "<group>"; };
+		FE11DC8527B8E4D70087F20A /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		FE11DC8727B9181B0087F20A /* MKAnnotation++Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKAnnotation++Class.swift"; sourceTree = "<group>"; };
+		FE11DC8A27BA92AE0087F20A /* PostHobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHobbyViewController.swift; sourceTree = "<group>"; };
+		FE11DC8C27BA92DC0087F20A /* PostHobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHobbyView.swift; sourceTree = "<group>"; };
+		FE11DC8F27BA9B8F0087F20A /* HobbyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyCollectionViewCell.swift; sourceTree = "<group>"; };
+		FE11DC9127BAACF50087F20A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		FE11DC9327BAAE3C0087F20A /* MyCollectionViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell2.swift; sourceTree = "<group>"; };
+		FE11DC9527BAAEC00087F20A /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		FE11DC9627BAAEC00087F20A /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
+		FE11DC9927BAB0430087F20A /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		FE11DC9B27BAC53C0087F20A /* SubjectCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectCollectionReusableView.swift; sourceTree = "<group>"; };
+		FE198EEB27B2D1C6008DD402 /* QueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
 		FE4A1B49279FCC7700BEA8C9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FE4A1B4B279FCD0C00BEA8C9 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		FE4A1B4D279FCD3900BEA8C9 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +179,7 @@
 		FED55D5627A80B4500FFF31D /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
 		FED55D5827A80B8200FFF31D /* WithdrawAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawAlertView.swift; sourceTree = "<group>"; };
 		FED55D5B27A81E9400FFF31D /* MyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewModel.swift; sourceTree = "<group>"; };
+		FED55D5D27A921FC00FFF31D /* UIButton++Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton++Extension.swift"; sourceTree = "<group>"; };
 		FEF232F4279698760082EBCC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FEF232FB27969A3C0082EBCC /* AuthPhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPhoneNumberViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +217,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FE11DC8927BA925D0087F20A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FE4A1B49279FCC7700BEA8C9 /* HomeViewController.swift */,
+				FE11DC8A27BA92AE0087F20A /* PostHobbyViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FE11DC8E27BA9B470087F20A /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				FE11DC8F27BA9B8F0087F20A /* HobbyCollectionViewCell.swift */,
+				FE11DC9B27BAC53C0087F20A /* SubjectCollectionReusableView.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		FE4A1B55279FE74600BEA8C9 /* cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,7 +268,9 @@
 		FE4A1B6027A12B4300BEA8C9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FE11DC8E27BA9B470087F20A /* cells */,
 				FE4A1B51279FD75B00BEA8C9 /* HomeView.swift */,
+				FE11DC8C27BA92DC0087F20A /* PostHobbyView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -237,6 +283,11 @@
 				FE4A1B6B27A17A7300BEA8C9 /* CollectionTestViewController.swift */,
 				FE4A1B7D27A1996400BEA8C9 /* Storyboard.storyboard */,
 				FE4A1B6927A1680000BEA8C9 /* ViewController.swift */,
+				FE11DC9127BAACF50087F20A /* TestViewController.swift */,
+				FE11DC9327BAAE3C0087F20A /* MyCollectionViewCell2.swift */,
+				FE11DC9527BAAEC00087F20A /* TestCollectionViewCell.swift */,
+				FE11DC9627BAAEC00087F20A /* TestCollectionViewCell.xib */,
+				FE11DC9927BAB0430087F20A /* HeaderCollectionReusableView.swift */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -295,6 +346,8 @@
 				FE9F9507279C4F8F002FFF3E /* UIViewController++Extension.swift */,
 				FE9F954E279DADA7002FFF3E /* UICollectionViewCell++Extension.swift */,
 				FE4A1B58279FEE8400BEA8C9 /* UITableViewCell++Extension.swift */,
+				FED55D5D27A921FC00FFF31D /* UIButton++Extension.swift */,
+				FE11DC8727B9181B0087F20A /* MKAnnotation++Class.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -386,9 +439,9 @@
 		FE9F9513279D5B7F002FFF3E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				FE11DC8927BA925D0087F20A /* Home */,
 				FE4A1B5A27A1141A00BEA8C9 /* MyInfo */,
 				FE675996279552C300B1C699 /* MainViewController.swift */,
-				FE4A1B49279FCC7700BEA8C9 /* HomeViewController.swift */,
 				FE4A1B4B279FCD0C00BEA8C9 /* ShopViewController.swift */,
 				FE4A1B4D279FCD3900BEA8C9 /* FriendViewController.swift */,
 			);
@@ -446,6 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				FE9F9511279D372F002FFF3E /* User.swift */,
+				FE11DC8527B8E4D70087F20A /* Queue.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -467,6 +521,7 @@
 			children = (
 				FE52048127986BD90039E63A /* FirebaseManager.swift */,
 				FE520485279909360039E63A /* AuthManager.swift */,
+				FE198EEB27B2D1C6008DD402 /* QueueManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -552,6 +607,7 @@
 				FE67599F279552C500B1C699 /* LaunchScreen.storyboard in Resources */,
 				FE67599C279552C500B1C699 /* Assets.xcassets in Resources */,
 				FE4A1B7427A17B0300BEA8C9 /* MyCollectionViewCell.xib in Resources */,
+				FE11DC9827BAAEC00087F20A /* TestCollectionViewCell.xib in Resources */,
 				FE520475279800E50039E63A /* NotoSansKR-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,6 +687,7 @@
 				FE9F9508279C4F8F002FFF3E /* UIViewController++Extension.swift in Sources */,
 				FEF232FC27969A3C0082EBCC /* AuthPhoneNumberViewController.swift in Sources */,
 				FE4A1B59279FEE8400BEA8C9 /* UITableViewCell++Extension.swift in Sources */,
+				FE11DC8627B8E4D70087F20A /* Queue.swift in Sources */,
 				FEC639E127A28BF500568A80 /* CollectionReusableView.swift in Sources */,
 				FE52046D2797EB9C0039E63A /* AuthPhoneView.swift in Sources */,
 				FE4A1B7C27A1937400BEA8C9 /* ReviewCollectionViewCell.swift in Sources */,
@@ -641,13 +698,16 @@
 				FE4A1B6F27A17AEF00BEA8C9 /* CollectionTableViewCell.swift in Sources */,
 				FED55D5727A80B4500FFF31D /* WithdrawViewController.swift in Sources */,
 				FE4A1B5C27A1143A00BEA8C9 /* PutMyInfoViewController.swift in Sources */,
+				FE11DC9C27BAC53C0087F20A /* SubjectCollectionReusableView.swift in Sources */,
 				FE52047E27985EFA0039E63A /* InsertNicknameViewController.swift in Sources */,
 				FE520456279721200039E63A /* InsertCodeViewController.swift in Sources */,
 				FE9F954F279DADA7002FFF3E /* UICollectionViewCell++Extension.swift in Sources */,
 				FED55D5327A7D24C00FFF31D /* PutCell.swift in Sources */,
 				FE52048F27996E1E0039E63A /* InsertBirthViewController.swift in Sources */,
+				FE11DC9027BA9B8F0087F20A /* HobbyCollectionViewCell.swift in Sources */,
 				FED55D5927A80B8200FFF31D /* WithdrawAlertView.swift in Sources */,
 				FE9F9516279D5B97002FFF3E /* MainView.swift in Sources */,
+				FE11DC9A27BAB0430087F20A /* HeaderCollectionReusableView.swift in Sources */,
 				FE5204932799B7930039E63A /* TextField++Extension.swift in Sources */,
 				FE52046F2797F3610039E63A /* UIFont++Extension.swift in Sources */,
 				FE4A1B52279FD75B00BEA8C9 /* HomeView.swift in Sources */,
@@ -656,20 +716,27 @@
 				FE9F954B279DA39F002FFF3E /* OnboardingCollectionViewCell.swift in Sources */,
 				FE9F9549279DA36E002FFF3E /* OnboardingSlide.swift in Sources */,
 				FE520486279909360039E63A /* AuthManager.swift in Sources */,
+				FE11DC8D27BA92DC0087F20A /* PostHobbyView.swift in Sources */,
 				FE520459279721610039E63A /* InsertEmailViewController.swift in Sources */,
 				FE52048D27996CDC0039E63A /* SignUpViewModel.swift in Sources */,
 				FE4A1B7A27A18F5700BEA8C9 /* TitleCell.swift in Sources */,
 				FE4A1B50279FCD6300BEA8C9 /* MyInfoViewController.swift in Sources */,
 				FE52045B279721860039E63A /* SelectGenderViewController.swift in Sources */,
+				FED55D5E27A921FC00FFF31D /* UIButton++Extension.swift in Sources */,
 				FE9F9500279BFE14002FFF3E /* String++Extension.swift in Sources */,
 				FED37C3927A2734800982682 /* HeaderCell.swift in Sources */,
 				FE520488279909820039E63A /* EndPoint.swift in Sources */,
+				FE11DC9727BAAEC00087F20A /* TestCollectionViewCell.swift in Sources */,
+				FE11DC9227BAACF50087F20A /* TestViewController.swift in Sources */,
 				FE520484279904FF0039E63A /* InsertCodeViewModel.swift in Sources */,
 				FE5204612797E8410039E63A /* Observable.swift in Sources */,
+				FE198EEC27B2D1C6008DD402 /* QueueManager.swift in Sources */,
+				FE11DC8827B9181B0087F20A /* MKAnnotation++Class.swift in Sources */,
 				FE52049127996E330039E63A /* InsertBirthView.swift in Sources */,
 				FE52047C27985EAE0039E63A /* InsertEmailView.swift in Sources */,
 				FE52047827984FD20039E63A /* InsertCodeView.swift in Sources */,
 				FE4A1B4A279FCC7700BEA8C9 /* HomeViewController.swift in Sources */,
+				FE11DC8B27BA92AE0087F20A /* PostHobbyViewController.swift in Sources */,
 				FE675997279552C300B1C699 /* MainViewController.swift in Sources */,
 				FE675993279552C300B1C699 /* AppDelegate.swift in Sources */,
 				FE4A1B7627A18D3A00BEA8C9 /* InfoManageView.swift in Sources */,
@@ -679,6 +746,7 @@
 				FE9F9547279DA35B002FFF3E /* OnboardingViewController.swift in Sources */,
 				FE52047A279853C90039E63A /* UIColor++Extension.swift in Sources */,
 				FE4A1B57279FE76A00BEA8C9 /* MyInfoCell.swift in Sources */,
+				FE11DC9427BAAE3C0087F20A /* MyCollectionViewCell2.swift in Sources */,
 				FE9F9512279D372F002FFF3E /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

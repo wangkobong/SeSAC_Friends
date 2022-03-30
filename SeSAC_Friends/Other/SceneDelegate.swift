@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-//        let vc = UINavigationController(rootViewController: TestViewController())
+//        let vc = UINavigationController(rootViewController: OnboardingViewController())
 // MARK: -
 //        let sb = UIStoryboard(name: "Storyboard", bundle: nil)
 //        let vc = sb.instantiateViewController(withIdentifier: "CollectionTestViewController")
@@ -26,8 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = vc
 //        window?.makeKeyAndVisible()
         let isSignedUp = UserDefaults.standard.bool(forKey: "isSignedUp")
-
-        print("isSignedUp: \(isSignedUp)")
+//
+//        print("isSignedUp: \(isSignedUp)")
         if Auth.auth().currentUser == nil && !isSignedUp { // 문자인증X && 회원가입X
             let vc = UINavigationController(rootViewController: OnboardingViewController())
             window?.rootViewController = vc
